@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_08_25_073229) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +35,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_073229) do
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
+  create_table "earnings", force: :cascade do |t|
+    t.bigint "movements_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movements_id"], name: "index_earnings_on_movements_id"
+  end
+
+  create_table "egresses", force: :cascade do |t|
+    t.bigint "movements_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movements_id"], name: "index_egresses_on_movements_id"
+  end
+
   create_table "movements", force: :cascade do |t|
     t.bigint "accounts_id", null: false
     t.integer "balance"
@@ -43,6 +59,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_073229) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["accounts_id"], name: "index_movements_on_accounts_id"
+  end
+
+  create_table "transfers", force: :cascade do |t|
+    t.bigint "movements_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movements_id"], name: "index_transfers_on_movements_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_073229) do
 
   add_foreign_key "accounts", "businesses"
   add_foreign_key "businesses", "users"
+  add_foreign_key "earnings", "movements", column: "movements_id"
+  add_foreign_key "egresses", "movements", column: "movements_id"
   add_foreign_key "movements", "accounts", column: "accounts_id"
+  add_foreign_key "transfers", "movements", column: "movements_id"
 end
