@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  accounts: one
+  balance: 1
+  currency: MyString
+  category: 
+  date: 2023-08-22
+  beneficiary: MyString
+  note: MyText
+
+two:
+  accounts: two
+  balance: 1
+  currency: MyString
+  category: 
+  date: 2023-08-22
+  beneficiary: MyString
+  note: MyText
