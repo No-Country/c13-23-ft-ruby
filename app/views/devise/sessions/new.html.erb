@@ -20,3 +20,5 @@
 <% end %>
 <%= button_to "Log in with Google", omniauth_authorize_path('user', 'google_oauth2'), data: { turbo: false } %><br />
 <%= link_to "Sign up", new_registration_path('user') %><br />
+
+<%= link_to "Back", :back %>
