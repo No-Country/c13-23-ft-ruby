@@ -22,6 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
+  has_one_attached :photo
   # validates :first_name, :last_name, :date_of_birth, presence: true
 
   def self.from_omniauth(access_token)

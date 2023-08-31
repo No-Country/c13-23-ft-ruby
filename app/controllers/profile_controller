@@ -1,0 +1,10 @@
+class ProfileController < ApplicationController
+  def index
+  end
+end
+
+private
+
+  def set_user
+    @user = Post.find(params[:post_id])
+  end
