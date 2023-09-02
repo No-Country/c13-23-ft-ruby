@@ -1,45 +1,74 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="relative bg-neutral-50 ">
+    <div class="w-[970px] h-[519px] left-[200px] top-[140px] absolute bg-neutral-50 rounded-3xl border border-violet-700"></div>
+    <div class="left-[576px] top-[222px] absolute flex-col justify-start items-start gap-[9px] inline-flex">
+      <div class="flex-col justify-start items-start flex">
+        <div class="w-[431px] h-[74px] flex-col justify-start items-start gap-2.5 flex">
+          <div class="self-stretch text-slate-900 text-sm font-semibold leading-[14px]">Nombre</div>
+          <div class="self-stretch h-[50px] px-6 py-2.5 bg-white rounded-[20px] border border-slate-900 justify-between items-center gap-2.5 inline-flex">
+            <div class="text-slate-900 text-sm font-normal">
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", value: @user.first_name, class: 'border-none' %>
+            </div>
+            <div class="w-6 h-6 relative"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col justify-start items-start flex">
+        <div class="w-[431px] h-[74px] flex-col justify-start items-start gap-2.5 flex">
+          <div class="self-stretch text-slate-900 text-sm font-semibold leading-[14px]"> Apellido </div>
+          <div class="self-stretch h-[50px] px-6 py-2.5 bg-white rounded-[20px] border border-slate-900 justify-between items-center gap-2.5 inline-flex">
+            <div class="text-slate-900 text-sm font-normal">
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", value: @user.last_name, class: 'border-none' %>
+            </div>
+            <div class="w-6 h-6 relative"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col justify-start items-start flex">
+        <div class="w-[431px] h-[74px] flex-col justify-start items-start gap-2.5 flex">
+          <div class="self-stretch text-slate-900 text-sm font-semibold leading-[14px]">Correo electrónico</div>
+          <div class="self-stretch h-[50px] px-6 py-2.5 bg-white rounded-[20px] border border-slate-900 justify-between items-center gap-2.5 inline-flex">
+            <div class="text-slate-900 text-sm font-normal">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", value: @user.email, class: 'border-none' %>
+            </div>
+            <div class="w-6 h-6 relative"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col justify-start items-start flex">
+        <div class="w-[431px] h-[74px] flex-col justify-start items-start gap-2.5 flex">
+          <div class="self-stretch text-slate-900 text-sm font-semibold leading-[14px]">Teléfono</div>
+          <div class="self-stretch h-[50px] px-6 py-2.5 bg-white rounded-[20px] border border-slate-900 justify-between items-center gap-2.5 inline-flex">
+            <div class="text-slate-900 text-sm font-normal">
+              <%= f.text_field :phone, autofocus: true, autocomplete: "phone", value: @user.phone, class: 'border-none' %>
+            </div>
+            <div class="w-6 h-6 relative"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-[125px] h-[125px] left-[295px] top-[241px] absolute">
+      <% if @user.avatar.attached? %>
+        <%= image_tag(@user.avatar, alt: "avatar user image", class: "w-[124px] h-[124px] left-0 top-0 absolute rounded-full") %>
+      <% else %>
+        <img class="w-[124px] h-[124px] left-0 top-0 absolute rounded-full" src="https://via.placeholder.com/124x124" />
+      <% end %>
+      <div class="w-10 h-10 left-[85px] top-[85px] absolute">
+        <div class="w-10 h-10 left-0 top-0 absolute bg-teal-400 rounded-full"></div>
+        <div class="w-6 h-6 left-[8px] top-[8px] absolute">
+          <%= image_tag('pencil.svg')%>
+        </div>
+      </div>
+    </div>
+    <div class="w-[207px] h-[83px] left-[254px] top-[456px] absolute">
+      <%= link_to edit_user_registration_path do %>
+        <div class="w-[207px] h-[30px] px-6 py-2 left-0 top-0 absolute bg-violet-700 rounded-[50px] shadow justify-center items-center gap-2.5 inline-flex">
+          <div class="text-center text-neutral-50 text-sm font-normal">Edit</div>
+        </div>
+      <% end %>
+      <div class="w-[207px] h-[33px] px-2.5 py-2 left-0 top-[50px] absolute rounded-[50px] shadow border border-indigo-950 justify-center items-center gap-2.5 inline-flex">
+        <div class="text-center text-indigo-950 text-sm font-normal"><%= f.submit "Guardar cambios" %></div>
+      </div>
+    </div>
   </div>
 <% end %>
-<h3>Cancel my account</h3>
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-<%= link_to "Back", :back %>
