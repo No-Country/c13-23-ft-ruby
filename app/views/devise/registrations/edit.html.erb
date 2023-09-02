@@ -56,7 +56,10 @@
       <div class="w-10 h-10 left-[85px] top-[85px] absolute">
         <div class="w-10 h-10 left-0 top-0 absolute bg-teal-400 rounded-full"></div>
         <div class="w-6 h-6 left-[8px] top-[8px] absolute">
-          <%= image_tag('pencil.svg')%>
+          <label for="file-input" class="cursor-pointer">
+            <%= image_tag('pencil.svg') %>
+          </label>
+          <%= f.file_field :avatar, class: 'hidden', id: 'file-input' %>
         </div>
       </div>
     </div>
