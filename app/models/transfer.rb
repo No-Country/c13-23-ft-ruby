@@ -1,3 +1,3 @@
-class Transfer < ApplicationRecord
+class Transfer < Movement
   belongs_to :movements
 end
