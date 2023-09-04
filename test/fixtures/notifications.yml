@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business: one
+  name: MyString
+  date: 2023-09-04
+  balance: 1
+  currency: MyString
+  note: MyText
+
+two:
+  business: two
+  name: MyString
+  date: 2023-09-04
+  balance: 1
+  currency: MyString
+  note: MyText
