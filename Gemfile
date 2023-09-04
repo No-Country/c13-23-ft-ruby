@@ -36,6 +36,7 @@ gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -44,13 +45,17 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'annotate'
 gem "bootsnap", require: false
 gem "devise"
-gem "figaro", "~> 1.2"
+# gem "figaro", "~> 1.2"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem "tailwindcss-rails", "~> 2.0"
+gem "simple_form", github: "heartcombo/simple_form"
+
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
+gem "cloudinary"
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

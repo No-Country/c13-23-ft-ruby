@@ -36,3 +36,5 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/cloudinary.yml
+/config/initializers/cloudinary.rb
