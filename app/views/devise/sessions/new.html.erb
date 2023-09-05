@@ -9,7 +9,7 @@
   <div class="flex items-center justify-center">
     <div class=" bg-stone-300 bg-opacity-0 rounded-2xl flex-col justify-center items-center gap-6 inline-flex">
       <div class=" text-indigo-950 text-4xl font-extrabold">Inicia sesión.</div>
-      <div class=""><span style="text-black text-opacity-40 text-base font-normal">Aún no tenes cuenta?</span><span style="text-slate-900 text-base font-normal"> </span><span style="text-stone-700 text-base font-semibold">Registrate</span></div>
+      <div class=""><span style="text-black text-opacity-40 text-base font-normal">Aún no tenes cuenta?</span><span style="text-slate-900 text-base font-normal"> </span><span style="text-stone-700 text-base font-semibold"><%= link_to "Registrate", new_registration_path('user') %></span></div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="w-96 flex-col justify-start items-start flex">
           <div class="w-96 h-20 flex-col justify-start items-start gap-2.5 flex">
