@@ -1,4 +1,5 @@
-<div class="bg-neutral-50 grid grid-cols-2 divide-x">
+<div class="bg-neutral-50 grid grid-cols-2 divide-x static" >
+  <%= image_tag('logo_violeta.png', class: 'absolute top-24 right-2') %>
   <div class="">
     <%= image_tag('sefi.png', class: 'min-w-[100%]')%>
     <%# <div class="w-96 h-16 left-[50px] top-[600px] absolute">
@@ -6,10 +7,10 @@
       <div class="left-0 top-[45px] absolute text-neutral-50 text-base font-medium">Iniciá sesión o creá una nueva cuenta con nosotros</div>
     </div> %>
   </div>
-  <div class="flex items-center justify-center">
+  <div class="flex items-center justify-center flex-col">
     <div class=" bg-stone-300 bg-opacity-0 rounded-2xl flex-col justify-center items-center gap-6 inline-flex">
-      <div class=" text-indigo-950 text-4xl font-extrabold">Inicia sesión.</div>
-      <div class=""><span style="text-black text-opacity-40 text-base font-normal">Aún no tenes cuenta?</span><span style="text-slate-900 text-base font-normal"> </span><span style="text-stone-700 text-base font-semibold"><%= link_to "Registrate", new_registration_path('user') %></span></div>
+      <div class=" text-indigo-950 text-4xl font-extrabold text-left w-full">Inicia sesión.</div>
+      <div class="text-left w-full"><span style="text-black text-opacity-40 text-base font-normal">Aún no tenes cuenta?</span><span style="text-slate-900 text-base font-normal"> </span><span style="text-stone-700 text-base font-semibold"><%= link_to "Registrate", new_registration_path('user'), class: "font-bold" %></span></div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="w-96 flex-col justify-start items-start flex">
           <div class="w-96 h-20 flex-col justify-start items-start gap-2.5 flex">
