@@ -1,3 +1,3 @@
-class Egress < ApplicationRecord
+class Egress < Movement
   belongs_to :movements
 end

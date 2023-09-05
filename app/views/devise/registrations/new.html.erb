@@ -1,35 +1,85 @@
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+<div class="bg-neutral-50 grid grid-cols-2 divide-x static" >
+  <%= image_tag('logo_violeta.png', class: 'absolute top-2 right-2') %>
+  <div class="">
+    <%= image_tag('sefi.png', class: 'min-w-[100%]')%>
+    <%# <div class="w-96 h-16 left-[50px] top-[600px] absolute">
+      <div class="w-96 left-0 top-0 absolute text-zinc-400 text-4xl font-extrabold">Bienvenido a SEFI</div>
+      <div class="left-0 top-[45px] absolute text-neutral-50 text-base font-medium">Iniciá sesión o creá una nueva cuenta con nosotros</div>
+    </div> %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  <div class="flex items-center justify-center flex-col">
+    <div class=" bg-stone-300 bg-opacity-0 rounded-2xl flex-col justify-center items-center gap-3 inline-flex">
+      <%= form_for(resource, as: resource_name, class: 'w-full', url: registration_path(resource_name))  do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class=" text-indigo-950 text-4xl font-extrabold text-left w-full">Crea una nueva cuenta.</div>
+        <div class="text-left w-full mb-2"><span style="text-black text-opacity-40 text-base font-normal">Ya tenes una cuenta?</span><span style="text-slate-900 text-base font-normal"> </span><span style="text-stone-700 text-base font-semibold"><%= link_to "Inicia Sesion", new_session_path(@user), class: "font-bold" %></span></div>
+        <div class=" flex-col justify-start items-start flex">
+          <div class="w-full h-20 flex-col justify-start items-start gap-2.5 flex">
+            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Nombre *</div>
+            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
+              <div class="text-neutral-500 text-sm font-light leading-relaxed"><%= f.text_field :first_name, autofocus: true, autocomplete: "nombre", placeholder: "ingresa tu nombre", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
+              <div class="w-6 h-6 relative"></div>
+            </div>
+          </div>
+          <div class="self-stretch text-zinc-400 text-sm font-light leading-none mb-8">*Campo obligatorio</div>
+        </div>
+        <div class="flex-col justify-start items-start flex">
+          <div class="w-full h-20 flex-col justify-start items-start gap-2.5 flex">
+            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Apellido *</div>
+            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
+              <div class="text-neutral-500 text-sm font-light leading-relaxed"><%= f.text_field :last_name, autofocus: true, autocomplete: "apellido", placeholder: "ingresa tu apellido", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
+              <div class="w-6 h-6 relative"></div>
+            </div>
+          </div>
+          <div class="self-stretch text-zinc-400 text-sm font-light leading-none mb-8">*Campo obligatorio</div>
+        </div>
+        <div class="flex-col justify-start items-start flex">
+          <div class="w-full h-20 flex-col justify-start items-start gap-2.5 flex">
+            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Correo electrónico *</div>
+            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
+              <div class="text-neutral-500 text-sm font-light leading-relaxed"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Ej. maria@gmail.com", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
+              <div class="w-6 h-6 relative"></div>
+            </div>
+          </div>
+          <div class="self-stretch text-zinc-400 text-sm font-light leading-none mb-8">*Campo obligatorio</div>
+        </div>
+        <div class="flex-col justify-start items-start flex">
+          <div class="w-full h-20 flex-col justify-start items-start gap-2.5 flex">
+            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Contraseña *</div>
+            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
+              <div class="text-neutral-500 text-sm font-light leading-relaxed">
+                <%= f.password_field :password, autofocus: true, autocomplete: "password", placeholder: "Ingresa tu contrasena", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
+              <div class="w-6 h-6 relative"></div>
+            </div>
+          </div>
+          <div class="self-stretch text-zinc-400 text-sm font-light leading-none mb-8">*Campo obligatorio</div>
+        </div>
+        <div class="flex-col justify-start items-start flex">
+          <div class="w-full h-20 flex-col justify-start items-start gap-2.5 flex">
+            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Confirma tu contraseña *</div>
+            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
+              <div class="text-neutral-500 text-sm font-light leading-relaxed"><%= f.password_field :password_confirmation, autofocus: true, autocomplete: "password", placeholder: "Confirma tu contrasena", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
+              <div class="w-6 h-6 relative"></div>
+            </div>
+          </div>
+          <div class="self-stretch text-zinc-400 text-sm font-light leading-none mb-2">*Campo obligatorio</div>
+        </div>
+        <div class="self-stretch h-7 px-6 py-2 bg-violet-700 bg-opacity-50 rounded-3xl shadow justify-center items-center inline-flex my-4 w-full">
+          <div class="text-center text-white text-sm font-normal drop-shadow-lg min-w-full"><%= f.submit "Crear cuenta", class: "cursor-pointer min-w-full" %></div>
+        </div>
+      </div>
+    <% end %>
+    <div class="items-center justify-center gap-1 inline-flex w-full mb-4">
+      <div class="w-28 h-px border border-black border-opacity-40"></div>
+      <div class="text-black text-opacity-40 text-sm font-normal ">o iniciar sesión con</div>
+      <div class="w-28 h-px border border-black border-opacity-40"></div>
+    </div>
+    <div class="justify-start items-start gap-5 inline-flex">
+      <div class="w-11 h-11 relative"><%= button_to omniauth_authorize_path('user', 'google_oauth2'), data: { turbo: false } do %>
+          <%= image_tag('google.svg')%>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= button_to "Sign up with Google", omniauth_authorize_path('user', 'google_oauth2'), data: { turbo: false } %><br />
+</div>
+</div>

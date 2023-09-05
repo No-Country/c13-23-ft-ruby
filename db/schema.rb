@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_075545) do
+# ActiveRecord::Schema[7.0].define(version: 2023_09_04_075545) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_221003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,6 +88,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_075545) do
     t.index ["accounts_id"], name: "index_movements_on_accounts_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "business_id", null: false
+    t.string "name"
+    t.date "date"
+    t.integer "status", default: 0
+    t.integer "balance"
+    t.string "currency"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_notifications_on_business_id"
+  end
+
   create_table "transfers", force: :cascade do |t|
     t.bigint "movements_id", null: false
     t.datetime "created_at", null: false
@@ -105,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_075545) do
     t.string "first_name"
     t.string "last_name"
     t.date "date_of_birth"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -116,5 +131,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_075545) do
   add_foreign_key "earnings", "movements", column: "movements_id"
   add_foreign_key "egresses", "movements", column: "movements_id"
   add_foreign_key "movements", "accounts", column: "accounts_id"
+  add_foreign_key "notifications", "businesses"
   add_foreign_key "transfers", "movements", column: "movements_id"
 end

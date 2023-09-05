@@ -12,4 +12,5 @@
 class Business < ApplicationRecord
   belongs_to :user
   has_many :accounts
+  has_many :notifications
 end
