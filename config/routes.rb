@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'businesses/index'
+  get 'businesses/show'
+  get 'businesses/new'
+  get 'businesses/create'
+  get 'businesses/edit'
+  get 'businesses/update'
+  get 'businesses/destroy'
   get 'users/show'
   get 'home/index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations/registrations', sessions: 'registrations/sessions' }
