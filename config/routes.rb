@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "home#index"
   resources :users, only: %i[show]
-  resources :businesses
+  resources :emprendimientos, as: :businesses, controller: :businesses
 end
