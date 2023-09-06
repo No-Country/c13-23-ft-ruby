@@ -38,3 +38,4 @@
 /config/application.yml
 /config/cloudinary.yml
 /config/initializers/cloudinary.rb
+.env*

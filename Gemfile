@@ -46,7 +46,10 @@ gem "bootsnap", require: false
 gem "devise"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
-
+gem "tailwindcss-rails", "~> 2.0"
+gem "cloudinary", "~> 1.27"
+gem "dotenv-rails", "~> 2.8"
+gem "simple_form"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -76,8 +79,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "tailwindcss-rails", "~> 2.0"
 
-gem "cloudinary", "~> 1.27"
-
-gem "dotenv-rails", "~> 2.8"
