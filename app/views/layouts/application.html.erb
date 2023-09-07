@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="overflow-hidden">
+  <body class="h-100">
     <%= render "shared/nav" unless request.fullpath == '/users/sign_in' || request.fullpath == '/users/sign_up' %>
     <%= yield %>
     <%= render "shared/footer" unless request.fullpath == '/users/sign_in' || request.fullpath == '/users/sign_up'%>
