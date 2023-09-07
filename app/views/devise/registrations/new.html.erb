@@ -33,8 +33,7 @@
         <%= link_to "Inicia Sesion", new_session_path(@user), class:"font-bold ps-1" %>
       </div>
       <div class="m-4 md:mt-16 md:mx-4">
-        <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.label :first_name, "Nombre *", class: "text-sefi-bold" %>
           <%= f.text_field :first_name, autofocus: true, autocomplete: "nombre", placeholder: "Ej. Sabrina", class: 'input-form mt-2' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
