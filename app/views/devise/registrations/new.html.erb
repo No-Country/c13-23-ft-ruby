@@ -1,6 +1,6 @@
-<div class="bg-gradient-to-r from-purple-700 to-blue-400 h-screen md:flex">
+<div class="bg-gradient-to-r from-purple-700 to-blue-400 h-full md:flex">
   <!-- Primer div (mitad izquierda) -->
-  <div class="bg-gradient-to-r h-100 from-purple-600 to-blue-400 hidden md:w-1/2 md:block relative">
+  <div class="bg-gradient-to-r from-purple-600 to-blue-400 hidden relative md:w-1/2 md:block ">
     <!-- Establecer la imagen como fondo -->
     <!-- Imagen de fondo
         <div class="absolute top-0 left-0 w-full h-full">
@@ -26,13 +26,13 @@
       <% end %>
     </div>
     <!-- Crear de Sesión-->
-    <div class="mx-6 mt-4">
+    <div class="m-4 md:mx-6 md:mt-4">
       <h2 class="title text-left mx-4 md:mx-6"> Crea una nueva cuenta. </h2>
       <div class="flex items-center">
         <p class="light-text-form text-left ms-4 text-white md:text-gray-600 md:ms-6"> Ya tenes una cuenta? </p>
         <%= link_to "Inicia Sesion", new_session_path(@user), class:"font-bold ps-1" %>
       </div>
-      <div class="mt-16 mx-4">
+      <div class="m-4 md:mt-16 md:mx-4">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= f.label :first_name, "Nombre *", class: "text-sefi-bold" %>
           <%= f.text_field :first_name, autofocus: true, autocomplete: "nombre", placeholder: "Ej. Sabrina", class: 'input-form mt-2' %>
