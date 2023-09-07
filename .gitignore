@@ -39,3 +39,4 @@
 /config/cloudinary.yml
 /config/initializers/cloudinary.rb
 .env*
+app/views/devise/registrations/backup.html.erb
