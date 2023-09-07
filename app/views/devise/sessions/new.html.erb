@@ -1,48 +1,57 @@
-<div class="bg-neutral-50 grid grid-cols-2 divide-x static" >
-  <%= image_tag('logo_violeta.png', class: 'absolute top-2 right-2') %>
-  <div class="">
-    <%= image_tag('sefi.png', class: 'min-w-[100%]')%>
-    <%# <div class="w-96 h-16 left-[50px] top-[600px] absolute">
-      <div class="w-96 left-0 top-0 absolute text-zinc-400 text-4xl font-extrabold">Bienvenido a SEFI</div>
-      <div class="left-0 top-[45px] absolute text-neutral-50 text-base font-medium">Iniciá sesión o creá una nueva cuenta con nosotros</div>
-    </div> %>
+<div class="h-screen bg-gradient-to-r from-purple-700 to-blue-400 md:flex">
+  <!-- Primer div (mitad izquierda) -->
+  <div class="h-100 bg-gradient-to-r from-purple-600 to-blue-400 hidden md:w-1/2 md:block">
+    <!-- Establecer la imagen como fondo -->
+    <!-- Imagen de fondo
+        <div class="absolute top-0 left-0 w-full h-full">
+            <%= image_tag "lines.png", class: "w-full h-full opacity-80" %>
+        </div>
+         -->
+    <div class="hidden md:block fixed bottom-20 ms-20 mb-10">
+      <h1 class="title md:text-6xl text-gray-200">
+        Bienvenido a <span>SEFI</span>
+      </h1>
+      <p class="light-text-form px-1 text-white md:text-base">Iniciá sesión o creá una nueva cuenta con nosotros</p>
+    </div>
   </div>
-  <div class="flex items-center justify-center flex-col">
-    <div class=" bg-stone-300 bg-opacity-0 rounded-2xl flex-col justify-center items-center gap-6 inline-flex">
-      <div class=" text-indigo-950 text-4xl font-extrabold text-left w-full">Inicia sesión.</div>
-      <div class="text-left w-full"><span style="text-black text-opacity-40 text-base font-normal">Aún no tenes cuenta?</span><span style="text-slate-900 text-base font-normal"> </span><span style="text-stone-700 text-base font-semibold"><%= link_to "Registrate", new_registration_path('user'), class: "font-bold" %></span></div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="w-96 flex-col justify-start items-start flex">
-          <div class="w-96 h-20 flex-col justify-start items-start gap-2.5 flex">
-            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Correo electrónico *</div>
-            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
-              <div class="text-neutral-500 text-sm font-light leading-relaxed"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Ej. maria@gmail.com", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
-              <div class="w-6 h-6 relative"></div>
-            </div>
-          </div>
-          <div class="self-stretch text-zinc-400 text-sm font-light leading-none mb-8">*Campo obligatorio</div>
-        </div>
-        <div class="w-96 flex-col justify-start items-start flex">
-          <div class="w-96 h-20 flex-col justify-start items-start gap-2.5 flex">
-            <div class="self-stretch text-slate-900 text-sm font-semibold leading-none">Contraseña *</div>
-            <div class="self-stretch h-12 px-6 py-2.5 bg-neutral-50 rounded-2xl border border-zinc-400 justify-between items-center gap-2.5 inline-flex">
-              <div class="text-neutral-500 text-sm font-light leading-relaxed"><%= f.password_field :password, autofocus: true, autocomplete: "current_password", placeholder: "Ingresa tu contrasena", class: 'border-none border-transparent focus:border-transparent focus:ring-0 bg-inherit' %></div>
-              <div class="w-6 h-6 relative"></div>
-            </div>
-          </div>
-          <div class="self-stretch text-zinc-400 text-sm font-light leading-none">*Campo obligatorio</div>
-          <div class="self-stretch h-7 px-6 py-2 bg-violet-700 bg-opacity-50 rounded-3xl shadow justify-center items-center gap-2.5 inline-flex mt-4">
-            <div class="text-center text-white text-sm font-normal drop-shadow-lg min-w-full"><%= f.submit "Iniciar Sesion", class: "cursor-pointer min-w-full" %></div>
-          </div>
-        </div>
+  <!-- Segundo div (mitad derecha) -->
+  <div class="md:w-1/2 md:bg-white">
+    <!--Logo-->
+    <div class="px-4 py-8 flex justify-center items-center md:hidden">
+      <%= render "devise/shared/logo_white"%>
+    </div>
+    <div class="p-4 m-2 justify-end items-center relative hidden md:flex md:m-8">
+      <%= link_to root_path do %>
+        <%= image_tag('sefi_black.png', class:"h-10")%>
       <% end %>
-      <div class="justify-start items-center gap-1 inline-flex">
-        <div class="w-28 h-px border border-black border-opacity-40"></div>
-        <div class="text-black text-opacity-40 text-sm font-normal">O Iniciar sesión con</div>
-        <div class="w-28 h-px border border-black border-opacity-40"></div>
+    </div>
+    <!-- Inicio de Sesión-->
+    <div class="m-4 md:m-16">
+      <h2 class="title text-left mx-4 md:mx-6"> Inicia sesión. </h2>
+      <div class="flex items-center">
+        <p class="light-text-form text-left ms-4 text-white md:text-gray-600 md:ms-6"> Aún no tenes cuenta? </p>
+        <%= link_to "Registrate", new_registration_path('user'), class:"font-bold ps-1" %>
       </div>
-      <div class="justify-start items-start gap-5 inline-flex">
-        <div class="w-11 h-11 relative"><%= button_to omniauth_authorize_path('user', 'google_oauth2'), data: { turbo: false } do %>
+      <div class="mt-16 mx-4">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.label :email, "Correo electrónico *", class: "text-sefi-bold" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Ej. maria@gmail.com", class: 'input-form mt-2' %>
+          <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
+          <%= f.label :password, "Contraseña *",class: "text-sefi-bold" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "current_password", placeholder: "Ingresá tu contraseña", class: 'input-form mt-2' %>
+          <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
+          <%= f.submit "Iniciar Sesión", class: "btn-sefi-primary mt-5" %>
+          <div class="flex items-center my-4">
+            <!-- Línea 1 -->
+            <div class="border-t border-gray-500 flex-grow"></div>
+            <!-- Texto en el medio -->
+            <span class="px-3 text-gray-200 md:text-gray-500">O Iniciar sesión con</span>
+            <!-- Línea 2 -->
+            <div class="border-t border-gray-500 flex-grow"></div>
+          </div>
+        <% end %>
+        <div class="flex justify-center items-center">
+          <%= button_to omniauth_authorize_path('user', 'google_oauth2'), class:"h-12 w-12 mt-2", data: { turbo: false } do %>
             <%= image_tag('google.svg')%>
           <% end %>
         </div>

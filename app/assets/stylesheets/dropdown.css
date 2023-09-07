@@ -1,6 +1,0 @@
-/* Dropdown */
-@layer components {
-  .dropdown {
-    @apply absolute;
-  }
-}
