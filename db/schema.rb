@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_221003) do
 
   create_table "businesses", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name_busines"
+    t.string "name_business"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
