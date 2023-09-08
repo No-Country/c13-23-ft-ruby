@@ -40,4 +40,4 @@
 /config/initializers/cloudinary.rb
 .env*
 app/views/devise/registrations/backup.html.erb
-app/views/devise/registrations/backup.html.erb
+app/views/devise/sessions/backup.html.erb
