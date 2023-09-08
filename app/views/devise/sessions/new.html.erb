@@ -31,6 +31,30 @@
         </div>
       </div>
       <!--Form-->
+      <div class="mx-4 md:mt-10 md:mx-2">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.label :email, "Correo electrónico *", class: "text-sefi-bold" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Ej. maria@gmail.com", class: 'input-form' %>
+          <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
+          <%= f.label :password, "Contraseña *",class: "text-sefi-bold" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "current_password", placeholder: "Ingresá tu contraseña", class: 'input-form' %>
+          <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
+          <%= f.submit "Crear cuenta", class: "btn-sefi-primary" %>
+          <div class="flex items-center my-4">
+            <!-- Línea 1 -->
+            <div class="border-t border-gray-500 flex-grow"></div>
+            <!-- Texto en el medio -->
+            <span class="px-3 text-gray-200 md:text-gray-500">O Iniciar sesión con</span>
+            <!-- Línea 2 -->
+            <div class="border-t border-gray-500 flex-grow"></div>
+          </div>
+        <% end %>
+        <div class="flex justify-center items-center m-0">
+          <%= button_to omniauth_authorize_path('user', 'google_oauth2'), class:"h-12 w-12 mt-2", data: { turbo: false } do %>
+            <%= image_tag('google.svg')%>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
