@@ -1,8 +1,9 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: %i[show edit update destroy]
+  attr_accessor :business
 
   def index
-    @businesses = current_user.businesses
+    @businesses = Business.all
   end
 
   def show; end
@@ -48,6 +49,6 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:user_id, :name, :description, :logo)
+    params.require(:business).permit(:user_id, :name_business, :description, :logo)
   end
 end
