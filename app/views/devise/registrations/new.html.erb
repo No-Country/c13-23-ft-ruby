@@ -1,55 +1,54 @@
-<div class="h-screen bg-gradient-to-r from-purple-700 to-blue-400 md:flex">
+<div class="p-0 m-0 h-screen bg-gradient-to-r from-purple-700 to-blue-400 sm:bg-white md:grid md:grid-cols-2 md:px-auto">
   <!-- Primer div (mitad izquierda) -->
-  <div class="bg-gradient-to-r from-purple-600 to-blue-400 hidden relative md:w-1/2 md:block ">
-    <!-- Establecer la imagen como fondo -->
-    <!-- Imagen de fondo
-        <div class="absolute top-0 left-0 w-full h-full">
-            <%= image_tag "lines.png", class: "w-full h-full opacity-80" %>
-        </div>
-         -->
-    <div class="hidden md:block fixed bottom-20 ms-20 mb-10">
-      <h1 class="title md:text-6xl text-gray-200">
+  <div class=" bg-gradient-to-r from-purple-600 to-blue-400 hidden md:block">
+    <div class="hidden md:block fixed bottom-20 ms-5 mb-10">
+      <h1 class="title text-gray-200 text-4xl">
         Bienvenido a <span>SEFI</span>
       </h1>
-      <p class="light-text-form px-1 text-white md:text-base">Iniciá sesión o creá una nueva cuenta con nosotros</p>
+      <p class="light-text-form text-white text-sm lg:text-base">Iniciá sesión o creá una nueva cuenta con nosotros</p>
     </div>
   </div>
   <!-- Segundo div (mitad derecha) -->
-  <div class="md:w-1/2 md:bg-white">
+  <div class="h-full md:bg-white">
     <!--Logo-->
-    <div class="px-4 py-8 flex justify-center items-center md:hidden">
+    <div class="p-2 flex justify-center items-center md:hidden">
       <%= render "devise/shared/logo_white"%>
     </div>
+    <!--Logo Negro-->
     <div class="p-4 m-2 justify-end items-center relative hidden md:flex md:m-8">
       <%= link_to root_path do %>
         <%= image_tag('sefi_black.png', class:"h-10")%>
       <% end %>
     </div>
-    <!-- Crear de Sesión-->
-    <div class="m-4 md:m-16">
-      <h2 class="title text-left mx-4 md:mx-6"> Crea una nueva cuenta. </h2>
-      <div class="flex items-center">
-        <p class="light-text-form text-left ms-4 text-white md:text-gray-600 md:ms-6"> Ya tenes una cuenta? </p>
-        <%= link_to "Inicia Sesion", new_session_path(@user), class:"font-bold ps-1" %>
+    <!--form-->
+    <div class="m-0 sm:m-5 md:m-10 lg:m-16">
+      <!--Encabezado form-->
+      <div class="p-4">
+        <h2 class="title text-left text-2xl md:text-4xl md:mx-6"> Crea una nueva cuenta. </h2>
+        <div class="flex items-center">
+          <p class="light-text-form text-left ms-1 text-white md:text-gray-600 md:ms-6"> Ya tenes una cuenta? </p>
+          <%= link_to "Inicia Sesion", new_session_path(@user), class:"font-bold ps-1" %>
+        </div>
       </div>
-      <div class="m-4 md:mt-16 md:mx-4">
+      <!--Form-->
+      <div class="mx-4 md:mt-10 md:mx-2">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.label :first_name, "Nombre *", class: "text-sefi-bold" %>
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "nombre", placeholder: "Ej. Sabrina", class: 'input-form mt-2' %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "nombre", placeholder: "Ej. Sabrina", class: 'input-form' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
           <%= f.label :last_name, "Apellido *", class: "text-sefi-bold" %>
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "apellido", placeholder: "Ej. López", class: 'input-form mt-2' %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "apellido", placeholder: "Ej. López", class: 'input-form' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
           <%= f.label :email, "Correo electrónico *", class: "text-sefi-bold" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Ej. maria@gmail.com", class: 'input-form mt-2' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Ej. maria@gmail.com", class: 'input-form' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
           <%= f.label :password, "Contraseña *",class: "text-sefi-bold" %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "current_password", placeholder: "Ingresá tu contraseña", class: 'input-form mt-2' %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "current_password", placeholder: "Ingresá tu contraseña", class: 'input-form' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
           <%= f.label :password_confirmation, "Confirma tu contrasena *",class: "text-sefi-bold" %>
           <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current_password", placeholder: "Confirma tu contrasena", class: 'input-form mt-2' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
-          <%= f.submit "Crear cuenta", class: "btn-sefi-primary mt-5" %>
+          <%= f.submit "Crear cuenta", class: "btn-sefi-primary" %>
           <div class="flex items-center my-4">
             <!-- Línea 1 -->
             <div class="border-t border-gray-500 flex-grow"></div>
