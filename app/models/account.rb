@@ -19,7 +19,7 @@
 #
 class Account < ApplicationRecord
   belongs_to :business
-  has_many :movements
+  has_many :movements, dependent: :destroy
   monetize :balance_cents
   validates :name, presence: true
   validates :balance, presence: true

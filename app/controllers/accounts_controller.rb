@@ -13,6 +13,7 @@ class AccountsController < ApplicationController
   end
 
   def create
+    @business = current_user.businesses
     @account = Account.new(account_params)
     if @account.save
       redirect_to business_path
@@ -43,7 +44,6 @@ class AccountsController < ApplicationController
   end
 
   def account_params
-    params.require(:account).permit(:business_id, :name, :balance)
+    params.require(:account).permit(:business_id, :name, :balance_cents)
   end
-  
 end
