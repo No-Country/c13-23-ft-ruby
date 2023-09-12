@@ -9,14 +9,15 @@ class AccountsController < ApplicationController
   end
 
   def new
+    @business = Business.find(params[:business_id])
     @account = Account.new
   end
 
   def create
-    @business = current_user.businesses
     @account = Account.new(account_params)
+    @account.business_id = params[:business_id]
     if @account.save
-      redirect_to business_path
+      redirect_to business_path(@account.business_id)
     else
       render :new
     end

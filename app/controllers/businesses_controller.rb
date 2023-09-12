@@ -6,7 +6,9 @@ class BusinessesController < ApplicationController
     @businesses = Business.all
   end
 
-  def show; end
+  def show
+    @accounts = @business.accounts
+  end
 
   def new
     @business = Business.new
