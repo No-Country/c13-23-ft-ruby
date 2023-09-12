@@ -27,7 +27,7 @@
         <h2 class="title text-left text-2xl md:text-4xl md:mx-6"> Inicia sesión. </h2>
         <div class="flex items-center">
           <p class="light-text-form text-left ms-1 text-white md:text-gray-600 md:ms-6"> Aún no tenes cuenta </p>
-          <%= link_to "Inicia Sesion", new_registration_path('user'), class:"font-bold ps-1" %>
+          <%= link_to "Crear cuenta", new_registration_path('user'), class:"font-bold ps-1" %>
         </div>
       </div>
       <!--Form-->
@@ -39,7 +39,7 @@
           <%= f.label :password, "Contraseña *",class: "text-sefi-bold" %>
           <%= f.password_field :password, autofocus: true, autocomplete: "current_password", placeholder: "Ingresá tu contraseña", class: 'input-form' %>
           <p class="light-text-form text-gray-300 text-sm mb-4 md:text-gray-500">*Campo obligatorio</p>
-          <%= f.submit "Crear cuenta", class: "btn-sefi-primary" %>
+          <%= f.submit "Iniciar sesión", class: "btn-sefi-primary" %>
           <div class="flex items-center my-4">
             <!-- Línea 1 -->
             <div class="border-t border-gray-500 flex-grow"></div>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :emprendimientos, as: :businesses, controller: :businesses do
-    resources :cuentas, as: :accounts, controller: :accounts, only: %i[new create]
+    resources :cuentas, as: :accounts, controller: :accounts, only: %i[new edit]
   end
 
   resources :movimientos, as: :movements, controller: :movements
