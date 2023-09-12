@@ -90,8 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_221003) do
     t.string "name"
     t.date "date"
     t.integer "status", default: 0
-    t.integer "balance"
-    t.string "currency"
+    t.money "balance", scale: 2
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
