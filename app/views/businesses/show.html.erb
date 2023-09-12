@@ -2,7 +2,7 @@
   <h1 class="font-bold text-4xl">Businesses#show</h1>
   <p>Find me in app/views/businesses/show.html.erb</p>
   <% @accounts.each do |account| %>
-    <p><%= account.name %></p>
+    <%= link_to account.name, business_account_path(@business, account) %>
     <p><%= account.balance_cents %></p>
   <% end %>
   <%= button_to "Eliminar", business_path(@business), method: :delete %>

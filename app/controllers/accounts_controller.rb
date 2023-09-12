@@ -1,11 +1,13 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: %i[show edit update destroy]
+  attr_accessor :business
   def index
     @accounts = Account.where(business_id: current_user)
   end
 
   def show
-    @accounts = Account.where(business_id: current_user)
+    @account = Account.find(params[:id])
+    @business = @account.business
   end
 
   def new
@@ -23,15 +25,21 @@ class AccountsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @business = @account.business
+    @account = Account.find(params[:id])
+  end
 
   def update
+    @business = Business.find(params[:business_id])
+    @account = Account.find(params[:id])
+  
     if @account.update(account_params)
-      redirect_to @account
+      redirect_to business_account_path(@business, @account)
     else
       render :edit
     end
-  end
+  end  
 
   def destroy
     @account.destroy
