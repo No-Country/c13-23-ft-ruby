@@ -2,8 +2,7 @@ class CreateMovements < ActiveRecord::Migration[7.0]
   def change
     create_table :movements do |t|
       t.references :accounts, null: false, foreign_key: true
-      t.integer :balance
-      t.string :currency
+      t.money :balance, with_currency: :ars
       t.enum :category, enum_name: :type_of_category, enum_type: :integer
       t.string :beneficiary
       t.text :note

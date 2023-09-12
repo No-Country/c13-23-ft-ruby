@@ -5,8 +5,7 @@ class CreateNotifications < ActiveRecord::Migration[7.0]
       t.string :name
       t.date :date
       t.integer :status, default: 0
-      t.integer :balance
-      t.string :currency
+      t.money :balance, with_currency: :ars
       t.text :note
 
       t.timestamps

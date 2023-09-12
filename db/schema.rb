@@ -17,8 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_221003) do
   create_table "accounts", force: :cascade do |t|
     t.bigint "business_id", null: false
     t.string "name"
-    t.integer "balance"
-    t.string "currency"
+    t.money "balance", scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_accounts_on_business_id"
@@ -77,8 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_221003) do
 
   create_table "movements", force: :cascade do |t|
     t.bigint "accounts_id", null: false
-    t.integer "balance"
-    t.string "currency"
+    t.money "balance", scale: 2
     t.integer "category"
     t.string "beneficiary"
     t.text "note"
@@ -92,8 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_221003) do
     t.string "name"
     t.date "date"
     t.integer "status", default: 0
-    t.integer "balance"
-    t.string "currency"
+    t.money "balance", scale: 2
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
