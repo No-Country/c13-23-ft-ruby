@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_174427) do
 
   create_table "businesses", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name_busines"
+    t.string "name_business"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_174427) do
   end
 
   create_table "movements", force: :cascade do |t|
-    t.bigint "accounts_id", null: false
+    t.bigint "account_id", null: false
     t.integer "balance_cents", default: 0
     t.integer "category"
     t.string "beneficiary"
