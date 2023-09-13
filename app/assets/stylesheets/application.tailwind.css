@@ -19,18 +19,6 @@
     @apply border-2 block w-full appearance-none rounded-full border-gray-400 px-0 py-2 pl-6 text-sm focus:border-gray-800 focus:outline-none focus:ring-0;
   }
 
-  .light-text-form {
-    @apply text-zinc-400 text-sm font-light leading-none;
-  }
-
-  .text-sefi-bold {
-    @apply text-slate-900 text-base font-semibold leading-none;
-  }
-
-  .text-sefi-regular {
-    @apply text-left w-full;
-  }
-
   .purple-sefi {
     @apply bg-violet-600;
   }
@@ -41,5 +29,17 @@
 
   .title {
     @apply text-indigo-950 text-3xl font-extrabold text-left w-full;
+  }
+
+  .light-text-form {
+    @apply text-zinc-400 text-sm font-light;
+  }
+
+  .text-sefi-bold {
+    @apply text-indigo-950 text-2xl font-semibold leading-none;
+  }
+
+  .text-sefi-regular {
+    @apply text-indigo-950;
   }
 }
