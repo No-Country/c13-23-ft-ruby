@@ -20,6 +20,6 @@
 #  fk_rails_...  (accounts_id => accounts.id)
 #
 class Movement < ApplicationRecord
-  belongs_to :accounts
+  belongs_to :account
   has_one :business, through: :accounts
 end
