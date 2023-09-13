@@ -1,6 +1,5 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: %i[show edit update destroy]
-  attr_accessor :business
 
   def index
     @businesses = Business.all
