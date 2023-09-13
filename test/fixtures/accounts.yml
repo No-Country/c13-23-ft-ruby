@@ -2,13 +2,12 @@
 #
 # Table name: accounts
 #
-#  id          :bigint           not null, primary key
-#  balance     :integer
-#  currency    :string
-#  name        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  business_id :bigint           not null
+#  id            :bigint           not null, primary key
+#  balance_cents :integer          default(0)
+#  name          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  business_id   :bigint           not null
 #
 # Indexes
 #

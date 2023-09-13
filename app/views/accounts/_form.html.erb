@@ -1,0 +1,7 @@
+<%= form_for [@business, @account] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :balance_cents %>
+  <%= f.text_field :balance_cents %>
+  <%= f.submit %>
+<% end %>

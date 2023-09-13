@@ -6,4 +6,9 @@
   <div class="w-40 h-20 bg-white shadow rounded-lg p-4 border border-gray-300">
     <%= link_to "Nueva empresa", new_business_path, class:"" %>
   </div>
+  <% @businesses.each do |business| %>
+    <div class="w-40 h-20 bg-white shadow rounded-lg p-4 border border-gray-300">
+      <%= business.name_business %>
+    </div>
+  <% end %>
 </div>

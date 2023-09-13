@@ -1,7 +1,12 @@
 <div>
   <h1 class="font-bold text-4xl">Businesses#show</h1>
   <p>Find me in app/views/businesses/show.html.erb</p>
+  <% @accounts.each do |account| %>
+    <%= link_to account.name, business_account_path(@business, account) %>
+    <p><%= account.balance_cents %></p>
+  <% end %>
   <%= button_to "Eliminar", business_path(@business), method: :delete %>
   <%= link_to "Editar", edit_business_path(@business) %>
   <%= link_to "Cancelar", businesses_path %>
+  <%= link_to "Nueva cuenta", new_business_account_path(@business) %>
 </div>

@@ -1,0 +1,8 @@
+<div>
+  <h1 class="font-bold text-4xl">Accounts#show</h1>
+  <p>Find me in app/views/accounts/show.html.erb</p>
+  <p><%= @account.name %></p>
+  <p><%= @account.balance_cents %></p>
+  <%= link_to "Editar", edit_business_account_path(@business, @account) %>
+  <%= link_to "Atrás", business_path(@account.business) %>
+</div>
