@@ -3,6 +3,7 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = Business.where(user_id: current_user.id)
+    @bussines = nil
   end
 
   def show
