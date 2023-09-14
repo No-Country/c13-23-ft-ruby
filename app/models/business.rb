@@ -22,6 +22,6 @@ class Business < ApplicationRecord
   has_many :accounts
   has_many :notifications
   has_one_attached :logo
-  validates_presence_of :name_busines
-  validates_uniqueness_of :name_busines
+  validates_presence_of :name_business
+  validates_uniqueness_of :name_business
 end

@@ -4,11 +4,11 @@
 
 @layer components {
   .btn-sefi-primary {
-    @apply self-stretch py-2 px-4 w-full bg-purple-600 bg-opacity-50 rounded-3xl shadow justify-center items-center inline-flex cursor-pointer text-white;
+    @apply py-2 px-4 w-full bg-violet-600 rounded-3xl shadow justify-center items-center inline-flex cursor-pointer text-white;
   }
 
   .btn-sefi-secundary {
-    @apply .btn bg-gray-500 text-white;
+    @apply self-stretch py-2 px-4 w-full bg-violet-600 rounded-3xl shadow justify-center items-center inline-flex cursor-pointer text-white;
   }
 
   .btn-sefi-outline {
@@ -17,18 +17,6 @@
 
   .input-form {
     @apply border-2 block w-full appearance-none rounded-full border-gray-400 px-0 py-2 pl-6 text-sm focus:border-gray-800 focus:outline-none focus:ring-0;
-  }
-
-  .light-text-form {
-    @apply text-zinc-400 text-sm font-light leading-none;
-  }
-
-  .text-sefi-bold {
-    @apply text-slate-900 text-base font-semibold leading-none;
-  }
-
-  .text-sefi-regular {
-    @apply text-left w-full;
   }
 
   .purple-sefi {
@@ -40,6 +28,18 @@
   }
 
   .title {
-    @apply text-indigo-950 text-3xl font-extrabold text-left w-full;
+    @apply text-indigo-950 text-3xl font-extrabold text-left;
+  }
+
+  .light-text-form {
+    @apply text-zinc-400 text-sm font-light;
+  }
+
+  .text-sefi-bold {
+    @apply text-indigo-950 text-2xl font-semibold leading-none;
+  }
+
+  .text-sefi-regular {
+    @apply text-indigo-950;
   }
 }

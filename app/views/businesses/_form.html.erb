@@ -1,6 +1,48 @@
-<%= simple_form_for @business do |f| %>
-  <%= f.input :name_business, label: "Nombre" %>
-  <%= f.input :description, label: "Descripción"%>
-  <%= f.input :logo, label: "Logo del emprendimiento", as: :file %>
-  <%= f.button :submit, label: "Crear emprendimiento ", class:"" %>
-<% end %>
+<div class="mx-4 py-8 md:mt-10 md:grid md:grid-cols-2 ">
+  <div>
+    <%= form_for @business do |f| %>
+      <div class="justify-items-end content-center p-2 mx-0 sm:hidden">
+        <div class="mx-auto w-32 h-32 relative">
+          <% if @business.logo.attached? %>
+            <%= image_tag(@business.logo, alt: "avatar user image", class: "item-center rounded-full h-32 w-32") %>
+          <% else %>
+            <img class="rounded-full h-32 w-32" src="https://via.placeholder.com/124x124" />
+          <% end %>
+          <div class="absolute bottom-0 right-0">
+            <div class="w-10 h-10 p-1 bg-teal-400 rounded-full cursor-pointer justify-center items-center">
+              <label for="file-input" class="cursor-pointer justify-center items-center">
+                <%= image_tag('pencil.svg', class:"p-1")%>
+              </label>
+              <%= f.file_field :avatar, class: 'hidden', id: 'file-input' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= f.label :name_business, "Nombre *", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+      <%= f.text_field :name_business, autofocus: true, autocomplete: "description", placeholder: "Ej. Emprendimiento", class: 'input-form mb-4 pt-2' %>
+      <%= f.label :description, "Descripción", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+      <%= f.text_field :description, autofocus: true, autocomplete: "description", placeholder: "Se trata de...", class: 'input-form mb-4' %>
+      <%= f.button :submit, label: "Crear emprendimiento", class:"btn-sefi-primary mb-4 md:hidden" %>
+    </div>
+    <div>
+      <div class="justify-items-end content-center p-2 mx-0 hidden md:block">
+        <div class="mx-auto w-32 h-32 relative">
+          <% if @business.logo.attached? %>
+            <%= image_tag(@business.logo, alt: "avatar user image", class: "item-center rounded-full h-32 w-32") %>
+          <% else %>
+            <img class="rounded-full h-32 w-32" src="https://via.placeholder.com/124x124" />
+          <% end %>
+          <div class="absolute bottom-0 right-0">
+            <div class="w-10 h-10 p-1 bg-teal-400 rounded-full cursor-pointer justify-center items-center">
+              <label for="file-input" class="cursor-pointer justify-center items-center">
+                <%= image_tag('pencil.svg', class:"p-1")%>
+              </label>
+              <%= f.file_field :avatar, class: 'hidden', id: 'file-input' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= f.button :submit, label: "Crear emprendimiento", class:"btn-sefi-primary py-0 w-48 mx-auto mb-4 hidden sm:block" %>
+    </div>
+  <% end %>
+</div>
