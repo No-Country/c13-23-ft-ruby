@@ -28,7 +28,7 @@
   }
 
   .title {
-    @apply text-indigo-950 text-3xl font-extrabold text-left w-full;
+    @apply text-indigo-950 text-3xl font-extrabold text-left;
   }
 
   .light-text-form {
