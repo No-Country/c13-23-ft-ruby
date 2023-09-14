@@ -1,8 +1,8 @@
 <h1 class="title mx-4 my-4">Mis Emprendimientos</h1>
 <p class="text-regular mx-4 my-2 py-1 pe-1">Elegí un emprendimiento para usar</p>
-<div class="m-4 scroll-smooth sm:flex sm:overflow-x-auto sm:w-full md:flex md:overflow-x-auto md:w-full">
+<div class="mx-auto w-80 sm:overflow-x-scroll sm:flex sm:scroll-smooth sm:w-screen ">
   <!--Card New Business-->
-  <div class="flex my-2 space-x-2  snap-start scroll-m-10 mx-5 px-5 justify-center items-center h-40 bg-white shadow-lg rounded-lg border border-gray-300 sm:w-96 sm:my-4 sm:mx-2 sm:h-60">
+  <div class="flex flex-row mx-auto my-2 space-x-10 snap-start px-5 justify-center items-center h-40 bg-white shadow-lg rounded-lg border border-gray-300 sm:w-96 sm:m-4 sm:h-60">
     <p class="w-44 text-center text-sefi-regular sm:text-2xl">Agregá un nuevo 
       emprendimiento</p>
     <%= link_to new_business_path do %>
@@ -15,7 +15,7 @@
   <!--Card Business-->
   <% @businesses.each do |business| %>
     <%= link_to business_path(business) do%>
-      <div class="flex my-2 snap-start scroll-m-10 mx-5 justify-center items-center h-40 space-x-4 bg-white shadow-lg rounded-lg border border-gray-300 sm:w-96 sm:my-4 sm:mx-4 sm:h-60">
+      <div class="flex flex-row mx-auto my-2 space-x-10 snap-start px-5 justify-center items-center h-40 bg-white shadow-lg rounded-lg border border-gray-300 sm:w-96 sm:m-4 sm:h-60">
         <%= cl_image_tag business&.logo.key, width: 1500, height: 1500, crop: :thumb, class:"rounded-full w-20 h-20" %>
         <p class="text-sefi-regular text-xl sm:text-3xl sm:px-4"><%= business&.name_business %></p>
         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
