@@ -8,7 +8,12 @@ class BusinessesController < ApplicationController
   def show
     @accounts = @business.accounts
     @bussines = Business.find(params[:id])
-
+    @movements = []
+    @accounts.map do |account|
+      account.movements.map do |movement|
+        @movements.push(movement)
+      end
+    end  
   end
 
   def new

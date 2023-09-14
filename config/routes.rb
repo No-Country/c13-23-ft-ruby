@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show]
 
-  root to: 'home#index'
+  root to: 'businesses#index'
 
   resources :emprendimientos, as: :businesses, controller: :businesses do
     resources :cuentas, as: :accounts, controller: :accounts
