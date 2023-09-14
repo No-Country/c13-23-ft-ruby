@@ -3,12 +3,18 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = Business.where(user_id: current_user.id)
+    @bussines = nil
   end
 
   def show
     @accounts = @business.accounts
     @bussines = Business.find(params[:id])
-
+    @movements = []
+    @accounts.map do |account|
+      account.movements.map do |movement|
+        @movements.push(movement)
+      end
+    end  
   end
 
   def new

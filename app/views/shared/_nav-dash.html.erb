@@ -6,7 +6,7 @@
   <div class="hidden justify-between lg:flex lg:justify-center ">
     <hr class="border-gray-200 dark:border-gray-700 lg:hidden">
     <%= link_to "Emprendimientos", businesses_path, class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
-    <% if @business.present? %>
+    <% unless @bussines.nil? %>
       <%= link_to "Ingresos", business_earnings_path(@bussines), class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
       <%= link_to "Egresos", business_egresses_path(@bussines), class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
       <%= link_to "Movimientos", business_movements_path(@bussines), class:"block  px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
@@ -38,9 +38,9 @@
             <%= link_to "Ver mi perfil", edit_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>
             <hr class="border-gray-200 dark:border-gray-700 lg:hidden">
             <%= link_to "Emprendimientos", businesses_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
-            <% if @business.present? %>
-              <%= link_to "Ingresos", earnings_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
-              <%= link_to "Egresos", egresses_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
+            <% unless @bussines.nil? %>
+              <%= link_to "Ingresos", business_earnings_path(@bussines), class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
+              <%= link_to "Egresos", business_egresses_path(@bussines), class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
               <%= link_to "Transferencias", transfers_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
               <!--<%= link_to "Cuentas", edit_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>-->
             <% end %>
