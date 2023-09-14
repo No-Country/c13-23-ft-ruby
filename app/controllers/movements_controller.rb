@@ -22,19 +22,15 @@ class MovementsController < ApplicationController
     end
   
     def create
-      @movement = @account.movements.new(movement_params)
+      @movement = Movement.new(movement_params)
       if @movement.save
-        case @movement.beneficiary
-        when 'Egreso'
-          Egress.create(movements_id: @movement.id) if @movement.balance.negative?
-        when 'Ingreso'
-          Earning.create(movements_id: @movement.id) unless @movement.balance.negative?
-        when 'Transferencia'
-          Transfer.create(movements_id: @movement.id)
+        if movement_params[:beneficiary] == 'Ingreso'
+          redirect_to business_earnings_path
+        elsif movement_params[:beneficiary] == 'Egreso'
+          redirect_to business_egresses_path
         end
-        redirect_to @account, notice: 'Movimiento creado exitosamente.'
       else
-        render :new
+        render new
       end
     end
   
