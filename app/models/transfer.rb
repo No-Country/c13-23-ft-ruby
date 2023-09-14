@@ -21,4 +21,5 @@
 #
 class Transfer < Movement
   # belongs_to :movements
+  has_one_attached :ticket
 end

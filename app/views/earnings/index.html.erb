@@ -4,6 +4,9 @@
   <p>En esta sección podés realizar el registro de un Ingreso.
     Luego lo verás reflejado en la sección de registros.</p>
 <% else %>
+ <div>
+ <div><p>En esta sección podés realizar el registro de un Ingreso.
+ Luego lo verás reflejado en la sección de registros.</p></div>
   <table class="table-auto">
     <thead>
       <tr>
@@ -26,5 +29,6 @@
       <% end %>
     </tbody>
   </table>
+  </div>
 <% end %>
 <%= link_to  "agregar ingreso", new_business_earning_path %>
