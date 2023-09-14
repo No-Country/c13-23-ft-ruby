@@ -1,0 +1,28 @@
+<%= form_with(url: business_movements_path) do |form| %>
+  <%= form.fields_for :movement do |f| %>
+    <div>
+      <%= f.label :fecha %>
+      <%= f.date_field :created_at %>
+    </div>
+    <div>
+      <%= f.label :importe %>
+      <%= f.number_field :balance_cents %>
+    </div>
+    <div>
+      <%= f.label :cuenta%>
+      <%=  f.collection_select(:account_id, @accounts, :id, :name) %>
+    </div>
+    <div>
+      <%= f.label :categoria %>
+      <%= f.number_field :category %>
+    </div>
+    <div>
+      <%= f.label :referencia %>
+      <%= f.text_field :note %>
+    </div>
+    <div>
+      <%= f.text_field :beneficiary, value: 'Egreso', class: :hidden %>
+    </div>
+    <%= f.submit "enviar" %>
+  <% end %>
+<% end %>

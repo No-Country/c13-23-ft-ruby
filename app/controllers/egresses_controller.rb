@@ -11,6 +11,12 @@ class EgressesController < ApplicationController
         end
       end        
     end
+
+    def new
+      # @egress = Egress.new
+      @bussines = Business.find(params[:business_id])
+      @accounts = @bussines.accounts
+    end
     
   
     # private

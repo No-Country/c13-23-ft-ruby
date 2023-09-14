@@ -1,5 +1,5 @@
 class MovementsController < ApplicationController
-    before_action :set_movement, :set_account, only: %i[create edit update destroy]
+    before_action :set_account, only: %i[create edit update destroy]
   
 
     def index
@@ -23,21 +23,21 @@ class MovementsController < ApplicationController
   
     def create
       @movement = @account.movements.new(movement_params)
-    if @movement.save
-      case @movement.beneficiary
-      when 'Egreso'
-        Egress.create(movements_id: @movement.id) if @movement.balance.negative?
-      when 'Ingreso'
-        Earning.create(movements_id: @movement.id) unless @movement.balance.negative?
-      when 'Transferencia'
-        Transfer.create(movements_id: @movement.id)
+      if @movement.save
+        case @movement.beneficiary
+        when 'Egreso'
+          Egress.create(movements_id: @movement.id) if @movement.balance.negative?
+        when 'Ingreso'
+          Earning.create(movements_id: @movement.id) unless @movement.balance.negative?
+        when 'Transferencia'
+          Transfer.create(movements_id: @movement.id)
+        end
+        redirect_to @account, notice: 'Movimiento creado exitosamente.'
+      else
+        render :new
       end
-
-      redirect_to @account, notice: 'Movimiento creado exitosamente.'
-    else
-      render :new
     end
-  end
+  
 
   def edit; end
   
@@ -57,15 +57,15 @@ class MovementsController < ApplicationController
   private
 
   def set_account
-    @account = Account.find(params[:account_id])
+    @account = Account.find(movement_params[:account_id])
   end
 
-  def set_movement
-    @movement = Movement.find(params[:id])
-  end
+  # def set_movement
+  #   @movement = Movement.find(params[:id])
+  # end
 
   def movement_params
-    params.require(:movement).permit(:balance, :category, :beneficiary, :note)
+    params.require(:movement).permit(:balance_cents, :category, :beneficiary, :note, :created_at, :account_id)
   end
 end
   
