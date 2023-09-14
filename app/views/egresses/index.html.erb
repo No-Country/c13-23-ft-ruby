@@ -1,0 +1,30 @@
+<h1><%= @bussines.name_business %></h1>
+<h2>Ingresos</h2>
+<% if @egresses.size.zero? %>
+  <p>En esta sección podés realizar el registro de un Egreso.
+    Luego lo verás reflejado en la sección de registros.</p>
+<% else %>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Referencia</th>
+        <th>Fecha</th>
+        <th>Categoria</th>
+        <th>Cuenta</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @egresses.each do |egress| %>
+        <tr>
+          <td><%= egress.note %></td>
+          <td><%= egress.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= egress.category %></td>
+          <td><%= Account.find(egress.account_id).name %></td>
+          <td><%= egress.balance_cents %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<%= link_to  "agregar egreso", new_business_egress_path %>

@@ -2,7 +2,7 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: %i[show edit update destroy]
 
   def index
-    @businesses = Business.all
+    @businesses = Business.where(user_id: current_user.id)
   end
 
   def show
