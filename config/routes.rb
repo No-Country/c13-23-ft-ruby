@@ -18,5 +18,4 @@ Rails.application.routes.draw do
 
   resources :presupuesto, as: :budgets, controller: :savings
   resources :transferencias, as: :transfers, controller: :transfers
-
 end
