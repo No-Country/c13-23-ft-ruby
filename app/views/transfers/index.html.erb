@@ -4,13 +4,16 @@
   <p>En esta sección podés realizar el registro de una Transferencia.
     Luego lo verás reflejado en la sección de registros.</p>
 <% else %>
+<div>
+<div><p>En esta sección podés realizar el registro de un Egreso.
+Luego lo verás reflejado en la sección de registros.</p></div>
   <table class="table-auto">
     <thead>
       <tr>
         <th>Referencia</th>
         <th>Fecha</th>
         <th>Categoria</th>
-        <th>Cuenta</th>
+        <th>Destinatario</th>
         <th>Monto</th>
       </tr>
     </thead>
@@ -20,10 +23,11 @@
           <td><%= transfer.note %></td>
           <td><%= transfer.created_at.strftime("%d/%m/%Y") %></td>
           <td><%= transfer.category %></td>
-          <td><%= Account.find(transfer.account_id).name %></td>
+          <td>Proveedor</td>
           <td><%= transfer.balance_cents %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  </div>
 <% end %>
