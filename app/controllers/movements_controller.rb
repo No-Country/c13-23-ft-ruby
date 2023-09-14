@@ -1,13 +1,28 @@
 class MovementsController < ApplicationController
     before_action :set_movement, :set_account, only: %i[create edit update destroy]
   
+
+    def index
+      @bussines = Business.find(params[:business_id])
+      @user = current_user
+
+      @accounts = @bussines.accounts
+      @movements = []
+      @accounts.map do |account|
+        account.movements.map do |movement|
+          @movements.push(movement)
+        end
+      end  
+      
+    end
+
     def new
       @movement = Movement.new
       set_account
     end
   
-    @movement = @account.movements.new(movement_params)
-
+    def create
+      @movement = @account.movements.new(movement_params)
     if @movement.save
       case @movement.beneficiary
       when 'Egreso'
