@@ -14,7 +14,7 @@
           <% else %>
             <img class="rounded-full h-32 w-32" src="https://via.placeholder.com/124x124" />
           <% end %>
-          <div class="absolute bottom-0 right-0">
+          <div class="hidden absolute bottom-0 right-0">
             <div class="w-10 h-10 p-1 bg-teal-400 rounded-full cursor-pointer justify-center items-center">
               <label for="file-input" class="cursor-pointer justify-center items-center">
                 <%= image_tag('pencil.svg', class:"p-1")%>
@@ -45,7 +45,7 @@
           <% else %>
             <img class="rounded-full h-32 w-32" src="https://via.placeholder.com/124x124" />
           <% end %>
-          <div class="absolute bottom-0 right-0">
+          <div class="hidden absolute bottom-0 right-0">
             <div class="hidden w-10 h-10 p-1 bg-teal-400 rounded-full cursor-pointer justify-center items-center">
               <label for="file-input" class="cursor-pointer justify-center items-center">
                 <%= image_tag('pencil.svg', class:"p-1")%>
@@ -56,7 +56,7 @@
       </div>
       <%= link_to edit_user_registration_path do %>
         <div class="">
-          <div class="btn-sefi-primary text-center py-0 w-48 mx-auto mb-4 hidden sm:block">Edit</div>
+          <div class="btn-sefi-primary text-center py-0 w-48 mx-auto mb-4 hidden md:block">Edit</div>
         </div>
       <% end %>
     </div>
