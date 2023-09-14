@@ -1,0 +1,85 @@
+<nav class="mb-4 border-b flex justify-between items-center">
+  <!-- Logo -->
+  <div class="flex px-4 h-24 w-32 items-center bg-violet-600 md:h-32 md:w-40">
+    <%= render "devise/shared/logo_white" %>
+  </div>
+  <div class="hidden justify-between lg:flex lg:justify-center ">
+    <hr class="border-gray-200 dark:border-gray-700 lg:hidden">
+    <%= link_to "Emprendimientos", businesses_path, class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
+    <%= link_to "Ingresos", earnings_path, class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
+    <%= link_to "Egresos", egresses_path, class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
+    <%= link_to "Transferencias", transfers_path, class:"block  px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
+    <!--<%= link_to "Cuentas", edit_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>-->
+  </div>
+  <div class="flex justify-center">
+    <% if user_signed_in? %>
+      <div class="relative inline-block group">
+        <!-- Dropdown toggle button -->
+        <button id="dropdown-toggle" class="group relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border rounded border-transparent focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
+          <a href="#" class="flex items-center text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+            <div class="mx-1">
+              <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">Hola <%= current_user&.first_name %></h1>
+              <p class="text-sm text-gray-500 dark:text-gray-400"><%= @business&.name_business %></p>
+            </div>
+            <div>
+              <%= cl_image_tag(current_user&.avatar.key, width: 500, height: 500, :gravity=>"face", :crop=>"crop", class:"rounded-full h-20 w-20 hidden md:block relative") if current_user&.avatar.attached? %>
+            </a>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:absolute md:bottom-1 md:right-2">
+              <circle cx="12" cy="12" r="12" fill="#7647CA"/>
+              <path d="M7.21345 8.36255L12.0227 13.1718L16.8319 8.36255C17.3153 7.87915 18.0962 7.87915 18.5796 8.36255C19.063 8.84595 19.063 9.62683 18.5796 10.1102L12.8903 15.7995C12.4069 16.2829 11.626 16.2829 11.1426 15.7995L5.45337 10.1102C4.96997 9.62683 4.96997 8.84595 5.45337 8.36255C5.93677 7.89154 6.73005 7.87915 7.21345 8.36255Z" fill="#FDFCFC"/>
+            </svg>
+          </div>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="dropdown-menu" class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800 hidden">
+          <% if user_signed_in? %>
+            <%= link_to "Ver mi perfil", edit_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>
+            <hr class="border-gray-200 dark:border-gray-700 lg:hidden">
+            <%= link_to "Emprendimientos", businesses_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
+            <%= link_to "Ingresos", earnings_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
+            <%= link_to "Egresos", egresses_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
+            <%= link_to "Transferencias", transfers_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
+            <!--<%= link_to "Cuentas", edit_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>-->
+            <hr class="border-gray-200 dark:border-gray-700">
+            <%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, form: {  data: { turbo: :false } }, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>
+          <% else %>
+            <%= link_to "Iniciar Sesión", new_user_session_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
+            <hr class="border-gray-200 dark:border-gray-700">
+            <%= link_to "Registrarse", new_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="flex justify-center">
+      <div class="relative inline-block group">
+        <button id="dropdown-toggle" class="group relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border rounded border-transparent focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none md:hidden">
+          <a href="#" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+          </a>
+          <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z" fill="currentColor"></path>
+          </svg>
+        </button>
+        <div class="hidden md:flex py-2 ">
+          <%= link_to "Iniciar Sesión", new_user_session_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
+          <hr class="border-gray-200 dark:border-gray-700">
+          <%= link_to "Registrarse", new_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform md:text-white md:bg-purple-400 rounded dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
+        </div>
+        <!-- Dropdown menu -->
+        <div id="dropdown-menu" class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800 hidden">
+          <%= link_to "Iniciar Sesión", new_user_session_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
+          <hr class="border-gray-200 dark:border-gray-700">
+          <%= link_to "Registrarse", new_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</nav>
+<script>
+  const dropdownToggle = document.getElementById('dropdown-toggle');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+
+  dropdownToggle.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+  });
+</script>
