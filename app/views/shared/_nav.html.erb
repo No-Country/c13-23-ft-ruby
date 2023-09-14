@@ -4,6 +4,13 @@
     <%= render "devise/shared/logo_black" %>
   </div>
   <% if user_signed_in? %>
+    <% unless @bussines.nil? %>
+      <div>
+        <%= link_to  "Ingresos", business_earnings_path(@bussines) %>
+        <%= link_to  "Egresos", business_egresses_path(@bussines) %>
+        <%= link_to  "Movimientos", business_movements_path(@bussines) %>
+      </div>
+    <% end %>
     <div class="flex justify-center">
       <div class="relative inline-block group">
         <!-- Dropdown toggle button -->

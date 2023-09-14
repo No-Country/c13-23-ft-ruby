@@ -7,6 +7,8 @@ class BusinessesController < ApplicationController
 
   def show
     @accounts = @business.accounts
+    @bussines = Business.find(params[:id])
+
   end
 
   def new
