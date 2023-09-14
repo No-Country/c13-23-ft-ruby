@@ -10,7 +10,11 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render "shared/nav" unless request.fullpath == '/users/sign_in' || request.fullpath == '/users/sign_up' %>
+    <% if current_user %>
+      <%= render "shared/nav-dash" %>
+    <% else %>
+      <%= render "shared/nav" unless request.fullpath == '/users/sign_in' || request.fullpath == '/users/sign_up' %>
+    <% end %>
     <%= yield %>
     <%= render "shared/footer" unless request.fullpath == '/users/sign_in' || request.fullpath == '/users/sign_up'%>
   </body>
