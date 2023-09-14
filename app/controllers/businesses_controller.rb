@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
       account.movements.map do |movement|
         @movements.push(movement)
       end
-    end  
+    end
   end
 
   def new

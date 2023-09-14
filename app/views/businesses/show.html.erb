@@ -3,7 +3,7 @@
     <h1 class="font-bold text-4xl bg-teal-400 ">Información Básica</h1>
   </div>
   <h1><%= @bussines.name_business %></h1>
-  <p>Actvidad reciente</p>
+  <p>Actividad reciente</p>
   <div class="flex">
     <% @movements.slice(0,5).each do |movement|%>
       <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
