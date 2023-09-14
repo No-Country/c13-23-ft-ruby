@@ -41,7 +41,7 @@
             <%= link_to "Transferencias", transfers_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden" %>
             <!--<%= link_to "Cuentas", edit_user_registration_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>-->
             <hr class="border-gray-200 dark:border-gray-700">
-            <%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, form: {  data: { turbo: :false } }, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:block" %>
+            <%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, form: {  data: { turbo: :false } }, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-left dark:hover:text-white md:block" %>
           <% else %>
             <%= link_to "Iniciar Sesión", new_user_session_path, class:"block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"%>
             <hr class="border-gray-200 dark:border-gray-700">
