@@ -2,7 +2,20 @@
   <div class="">
     <h1 class="font-bold text-4xl bg-teal-400 ">Información Básica</h1>
   </div>
-  <p>Find me in app/views/businesses/show.html.erb</p>
+  <h1><%= @bussines.name_business %></h1>
+  <p>Actvidad reciente</p>
+  <div class="flex">
+    <% @movements.slice(0,5).each do |movement|%>
+      <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= movement.note%></div>
+        <div class="font-normal text-gray-700 dark:text-gray-400"><%= movement.account.name%></div>
+        <div class="font-normal text-gray-700 dark:text-gray-400"><%= movement.balance_cents%></div>
+        <div class="font-normal text-gray-700 dark:text-gray-400"><%= movement.created_at.strftime("%d/%m/%Y") %></div>
+      </div>
+    <% end %>
+  </div>
+  <% @bussines %>
+  <p>Mis cuentas</p>
   <% @accounts.each do |account| %>
     <%= link_to account.name, business_account_path(@business, account) %>
     <p><%= account.balance_cents %></p>
