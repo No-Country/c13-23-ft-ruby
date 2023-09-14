@@ -1,0 +1,29 @@
+<h1><%= @bussines.name_business %></h1>
+<h2>Transferencias</h2>
+<% if @transfers.size.zero? %>
+  <p>En esta sección podés realizar el registro de una Transferencia.
+    Luego lo verás reflejado en la sección de registros.</p>
+<% else %>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Referencia</th>
+        <th>Fecha</th>
+        <th>Categoria</th>
+        <th>Cuenta</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transfers.each do |transfer| %>
+        <tr>
+          <td><%= transfer.note %></td>
+          <td><%= transfer.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= transfer.category %></td>
+          <td><%= Account.find(transfer.account_id).name %></td>
+          <td><%= transfer.balance_cents %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
