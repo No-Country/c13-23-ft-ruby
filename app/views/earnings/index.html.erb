@@ -1,0 +1,29 @@
+<h1><%= @bussines.name_business %></h1>
+<h2>Ingresos</h2>
+<% if @earnings.size.zero? %>
+  <p>En esta sección podés realizar el registro de un Ingreso.
+    Luego lo verás reflejado en la sección de registros.</p>
+<% else %>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Referencia</th>
+        <th>Fecha</th>
+        <th>Categoria</th>
+        <th>Cuenta</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @earnings.each do |earning| %>
+        <tr>
+          <td><%= earning.note %></td>
+          <td><%= earning.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= earning.category %></td>
+          <td><%= Account.find(earning.account_id).name %></td>
+          <td><%= earning.balance_cents %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

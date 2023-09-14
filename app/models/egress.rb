@@ -20,5 +20,5 @@
 #  fk_rails_...  (account_id => accounts.id)
 #
 class Egress < Movement
-  belongs_to :movements
+  # belongs_to :movements
 end

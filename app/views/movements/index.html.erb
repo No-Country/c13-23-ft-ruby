@@ -1,0 +1,28 @@
+<h1><%= @bussines.name_business %></h1>
+<h2>Movimientos</h2>
+<% if @movements.size.zero? %>
+  <p>En esta sección podés revisar el total de tus movimientos.</p>
+<% else %>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Categoria</th>
+        <th>Referencia</th>
+        <th>Cuenta</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movements.each do |movement|%>
+        <tr>
+          <td><%= movement.created_at.strftime("%d/%m/%Y") %></td>
+          <td><%= movement.beneficiary %></td>
+          <td><%= movement.note %></td>
+          <td><%= Account.find(movement.account_id).name %></td>
+          <td><%= movement.balance_cents %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
