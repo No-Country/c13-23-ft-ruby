@@ -1,7 +1,11 @@
-<%= form_for [@business, @account] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :balance_cents %>
-  <%= f.text_field :balance_cents %>
-  <%= f.submit %>
-<% end %>
+<div class="mx-4 py-8 md:mt-10 md:grid md:grid-cols-2 ">
+  <div>
+    <%= form_for [@business, @account] do |f| %>
+      <%= f.label :name, "Nombre de la Cuenta *", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+      <%= f.text_field :name, autofocus: true, placeholder: "Ej. Emprendimiento", class: 'input-form mb-4 pt-2' %>
+      <%= f.label :balance_cents, "Importe Inicial", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+      <%= f.text_field :balance_cents, autofocus: true, placeholder: "$", class: 'input-form mb-4' %>
+      <%= f.button :submit, label: "Crear Cuenta", class:"btn-sefi-primary mb-4 md:hidden" %>
+    </div>
+  <% end %>
+</div>

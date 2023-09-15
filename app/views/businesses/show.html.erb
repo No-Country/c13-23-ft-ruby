@@ -2,12 +2,14 @@
   <h1 class="title"><%= @bussines.name_business %></h1>
   <p class="text-sefi-regular text-sefi-bold my-6">Actividad reciente</p>
   <div class="overflow-x-scroll flex scroll-smooth">
-    <% @movements.slice(0,5).each do |movement|%>
-      <div class="flex mx-2 my-2 space-x-4 snap-start px-32 justify-center items-center w-32 h-40 bg-teal-400 shadow-xl rounded-lg border border-gray-300  sm:w-96 m-4 sm:space-x-9 sm:h-60">
+    <% @movements.slice(0, 10).each do |movement| %>
+      <% background_colors = ["bg-violet-400", "bg-teal-200", "bg-indigo-100"] %>
+      <% random_bg_color = background_colors.sample %>
+      <div class="flex mx-2 my-2 space-x-4 snap-start px-32 justify-center items-center w-32 h-40 shadow-xl rounded-lg border border-gray-300 sm:w-96 m-4 sm:space-x-9 sm:h-60 <%= random_bg_color %>">
         <div>
-          <div class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= movement.note%></div>
-          <div class="font-normal text-gray-700 dark:text-gray-400""><%= movement.account.name%></div>
-          <div class="font-normal text-gray-700 dark:text-gray-400">$<%= movement.balance_cents%></div>
+          <div class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"><%= movement.note %></div>
+          <div class="font-normal text-gray-700 dark:text-gray-400"><%= movement.account.name %></div>
+          <div class="font-normal text-gray-700 dark:text-gray-400">$<%= movement.balance_cents %></div>
           <div class="font-normal text-gray-700 dark:text-gray-400"><%= movement.created_at.strftime("%d/%m/%Y") %></div>
         </div>
       </div>

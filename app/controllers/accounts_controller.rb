@@ -35,17 +35,12 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
   
     if @account.update(account_params)
-      redirect_to business_account_path(@business, @account)
+      redirect_to business_path(@account.business_id)
     else
       render :edit
     end
-  end  
-
-  def destroy
-    @account.destroy
-    redirect_to businesses_path
   end
-
+  
   private
 
   def set_account
