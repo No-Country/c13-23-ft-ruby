@@ -23,4 +23,5 @@ class EarningsController < ApplicationController
   # def set_movement
   # @movement = Movement.find(params[:movement_id])
   # end
+
 end
