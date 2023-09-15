@@ -15,6 +15,7 @@ class EarningsController < ApplicationController
     # @egress = Egress.new
     @business = Business.find(params[:business_id])
     @accounts = @business.accounts
+    @categorias = Movement.categorias_ingresos.keys.map { |categoria| [categoria, categoria]}
   end
 
 
