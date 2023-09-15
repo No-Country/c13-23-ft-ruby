@@ -24,5 +24,4 @@ class Business < ApplicationRecord
   has_one_attached :logo
   validates_presence_of :name_business
   validates_uniqueness_of :name_business
-  monetize :balance_cents
 end
