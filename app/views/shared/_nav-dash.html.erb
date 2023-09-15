@@ -21,7 +21,9 @@
           <a href="#" class="flex items-center text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
             <div class="mx-1">
               <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">Hola <%= current_user&.first_name %></h1>
-              <p class="text-sm text-gray-500 dark:text-gray-400"><%= @business&.name_business %></p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                <%= @business&.name_business %>
+              </p>
             </div>
             <div>
               <%= cl_image_tag(current_user&.avatar.key, width: 500, height: 500, :gravity=>"face", :crop=>"crop", class:"rounded-full h-20 w-20 hidden md:block relative") if current_user&.avatar.attached? %>
