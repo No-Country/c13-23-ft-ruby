@@ -1,28 +1,20 @@
-<%= form_with(url: business_movements_path) do |form| %>
-  <%= form.fields_for :movement do |f| %>
-    <div>
-      <%= f.label :fecha %>
-      <%= f.date_field :created_at %>
-    </div>
-    <div>
-      <%= f.label :importe %>
-      <%= f.number_field :balance_cents %>
-    </div>
-    <div>
-      <%= f.label :cuenta%>
-      <%=  f.collection_select(:account_id, @accounts, :id, :name) %>
-    </div>
-    <div>
-      <%= f.label :categoria %>
-      <%= f.select :category, options_for_select(@categorias) %>
-    </div>
-    <div>
-      <%= f.label :referencia %>
-      <%= f.text_field :note %>
-    </div>
-    <div>
-      <%= f.text_field :beneficiary, value: 'Ingreso', class: :hidden %>
-    </div>
-    <%= f.submit "enviar" %>
-  <% end %>
-<% end %>
+<div class="mx-4 py-8 md:mt-10">
+  <div>
+    <%= form_with(url: business_movements_path) do |form| %>
+      <%= form.fields_for :movement do |f| %>
+        <%= f.label :fecha, "Fecha", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.date_field :created_at, autofocus: true, class: 'input-form mb-4 pt-2'  %>
+        <%= f.label :importe, "Importe", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.number_field :balance_cents, placeholder: "$", class: 'input-form mb-4 pt-2' %>
+        <%= f.label :cuenta, "Cuenta", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.collection_select(:account_id, @accounts, :id, :name, {prompt: "Selecciona una cuenta"}, {class: "input-form mb-4 pt-2"}) %>
+        <%= f.label :categoria, "Categoria", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.select :category, options_for_select(@categorias), {prompt: "Selecciona una categoria"}, {class: "input-form mb-4 pt-2"} %>
+        <%= f.label :referencia, "Referencia", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.text_field :note, class: 'input-form mb-4 pt-2' %>
+        <%= f.text_field :beneficiary, value: 'Ingreso', class: 'input-form mb-4 pt-2 hidden' %>
+        <%= f.submit "Agregar ingreso", class:"btn-sefi-primary mb-4" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
