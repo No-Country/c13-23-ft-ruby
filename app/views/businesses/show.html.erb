@@ -15,7 +15,7 @@
   </div>
   <p class="text-sefi-regular text-sefi-bold my-6">Mis cuentas</p>
   <% @business.accounts.each do |account| %>
-    <div class="flex flex-row mx-auto my-4 space-x-5 snap-start px-20 justify-center items-center h-40 bg-white shadow-xl rounded-lg border border-gray-300 sm:space-x-10 sm:px-10 sm:w-96 sm:m-4 md:h-60">
+    <div class="flex flex-row me-2 my-4 space-x-5 snap-start px-20 justify-center items-center h-40 bg-white shadow-xl rounded-lg border border-gray-300 sm:space-x-10 sm:px-10 sm:w-96 sm:me-4 md:h-60">
       <div class="sm:me-4">
         <p class="text-sefi-regular w-32 sm:text-2xl sm:w-24"><%= account&.name %></p>
         <p class="text-sefi-regular">$<%= account.balance_cents %></p>
