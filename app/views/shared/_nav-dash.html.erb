@@ -5,8 +5,8 @@
   </div>
   <div class="hidden justify-between lg:flex lg:justify-center ">
     <hr class="border-gray-200 dark:border-gray-700 lg:hidden">
-    <%= link_to "Emprendimientos", businesses_path, class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
     <% unless @bussines.nil? %>
+      <%= link_to "Emprendimientos", businesses_path, class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
       <%= link_to "Ingresos", business_earnings_path(@bussines), class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
       <%= link_to "Egresos", business_egresses_path(@bussines), class:"block px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300  dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
       <%= link_to "Transferencias", business_transfers_path(@bussines), class:"block  px-4 py-3 text-sefi-regular capitalize transition-colors duration-200 transform rounded-full hover:bg-violet-600 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white lg:block" %>
