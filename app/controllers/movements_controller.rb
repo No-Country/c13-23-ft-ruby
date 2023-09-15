@@ -23,10 +23,15 @@ class MovementsController < ApplicationController
   
     def create
       @movement = Movement.new(movement_params)
+      @account = Account.find(@movement.account_id)
       if @movement.save
         if movement_params[:beneficiary] == 'Ingreso'
+          @account.balance_cents += @movement.balance_cents
+          @account.save
           redirect_to business_earnings_path
         elsif movement_params[:beneficiary] == 'Egreso'
+          @account.balance_cents -= @movement.balance_cents
+          @account.save
           redirect_to business_egresses_path
         end
       else
