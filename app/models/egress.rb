@@ -21,6 +21,7 @@
 #
 class Egress < Movement
   # belongs_to :movements
+  monetize :balance_cents
 
-  
+
 end

@@ -22,6 +22,7 @@
 class Movement < ApplicationRecord
   belongs_to :account
   has_one :business, through: :accounts
+  monetize :balance_cents
 
   def self.categorias_gastos
     { insumos: 0, servicios: 1, transporte: 2, impuestos: 3, gastos_personales: 4, otros: 5 }

@@ -21,5 +21,6 @@
 #
 class Earning < Movement
   # belongs_to :movements
+  monetize :balance_cents
 
 end
