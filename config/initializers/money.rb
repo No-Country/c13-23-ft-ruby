@@ -6,6 +6,7 @@ MoneyRails.configure do |config|
   #
   config.default_currency = :ars
   config.no_cents_if_whole = false
+  config.symbol = "ARS"
   # Set default bank object
   #
   # Example:

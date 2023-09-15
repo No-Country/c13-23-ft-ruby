@@ -26,7 +26,11 @@
               </p>
             </div>
             <div>
-              <%= cl_image_tag(current_user&.avatar.key, width: 500, height: 500, :gravity=>"face", :crop=>"crop", class:"rounded-full h-20 w-20 hidden md:block relative") if current_user&.avatar.attached? %>
+              <% if current_user&.avatar.attached? %>
+                <%= image_tag(@user.avatar, alt: "avatar user image", class:"rounded-full h-20 w-20 hidden md:block relative") %>
+              <% else %>
+                <img class="rounded-full h-20 w-20 hidden md:block relative" src="https://via.placeholder.com/124x124" />
+              <% end %>
             </a>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:absolute md:bottom-1 md:right-2">
               <circle cx="12" cy="12" r="12" fill="#7647CA"/>

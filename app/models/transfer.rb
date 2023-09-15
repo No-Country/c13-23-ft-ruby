@@ -23,4 +23,5 @@ class Transfer < Movement
   # belongs_to :movements
   has_one_attached :ticket
   validates_presence_of :account_id, :balance_cents
+  monetize :balance_cents
 end
