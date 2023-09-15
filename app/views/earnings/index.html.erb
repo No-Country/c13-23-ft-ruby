@@ -35,7 +35,7 @@
               </div>
             </td>
             <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= earning.created_at.strftime("%d/%m/%y") %></td>
-            <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= earning.category %></td>
+            <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= Movement.categorias_ingresos.keys[earning.category] %></td>
             <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= Account.find(earning.account_id).name %></td>
             <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base">$<%= earning.balance_cents %></td>
           </tr>

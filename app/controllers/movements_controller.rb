@@ -33,6 +33,10 @@ class MovementsController < ApplicationController
           @account.balance_cents -= @movement.balance_cents
           @account.save
           redirect_to business_egresses_path
+        elsif movement_params[:beneficiary] == 'Transferencia'
+          @account.balance_cents -= @movement.balance_cents
+          @account.save
+          redirect_to business_transfers_path
         end
       else
         render new
