@@ -43,5 +43,10 @@
       </tbody>
     </table>
   <% end %>
+  <div class="flex justify-end">
+    <%= link_to new_business_transfer_path(@bussines), class: "mb-0" do %>
+      <%= image_tag('add_button.svg')%>
+    <% end %>
+  </div>
 </div>
 <%# <%= link_to  "agregar egreso", new_business_egress_path %>
