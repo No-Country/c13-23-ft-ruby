@@ -43,5 +43,10 @@
       </tbody>
     </table>
   <% end %>
+  <div class="flex justify-end">
+    <%= link_to new_business_earning_path(@bussines), class: "mb-0" do %>
+      <%= image_tag('add_button.svg')%>
+    <% end %>
+  </div>
 </div>
 <%# <%= link_to  "agregar ingreso", new_business_earning_path %>

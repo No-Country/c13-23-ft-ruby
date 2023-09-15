@@ -14,20 +14,27 @@
     <% end %>
   </div>
   <p class="text-sefi-regular text-sefi-bold my-6">Mis cuentas</p>
-  <div class="overflow-x-scroll flex scroll-smooth">
-    <% @business.accounts.each do |account| %>
-      <div class="flex flex-row mx-auto my-4 space-x-5 snap-start px-20 justify-center items-center h-40 bg-white shadow-xl rounded-lg border border-gray-300 sm:space-x-10 sm:px-10 sm:w-96 sm:m-4 md:h-60">
-        <div class="sm:me-4">
-          <p class="text-sefi-regular w-32 sm:text-2xl sm:w-24"><%= account&.name %></p>
-          <p class="text-sefi-regular">$<%= account.balance_cents %></p>
-        </div>
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <%= link_to edit_business_account_path(@business, account) do %>
-            <circle cx="22" cy="22" r="22" fill="#23D5B4"/>
-            <path d="M14.2996 29.6997H15.8396L25.3271 20.2122L23.7871 18.6722L14.2996 28.1597V29.6997ZM30.0296 18.6172L25.3546 13.9972L26.8946 12.4572C27.3163 12.0355 27.8344 11.8247 28.4489 11.8247C29.0634 11.8247 29.5812 12.0355 30.0021 12.4572L31.5421 13.9972C31.9638 14.4189 32.1838 14.9278 32.2021 15.524C32.2204 16.1202 32.0188 16.6288 31.5971 17.0497L30.0296 18.6172ZM28.4346 20.2397L16.7746 31.8997H12.0996V27.2247L23.7596 15.5647L28.4346 20.2397ZM24.5571 19.4422L23.7871 18.6722L25.3271 20.2122L24.5571 19.4422Z" fill="#FDFCFC"/>
-          </svg>
-        </div>
+  <div class="flex justify-between">
+    <div class="overflow-x-scroll flex scroll-smooth">
+      <% @business.accounts.each do |account| %>
+        <div class="flex flex-row mx-auto my-4 space-x-5 snap-start px-20 justify-center items-center h-40 bg-white shadow-xl rounded-lg border border-gray-300 sm:space-x-10 sm:px-10 sm:w-96 sm:m-4 md:h-60">
+          <div class="sm:me-4">
+            <p class="text-sefi-regular w-32 sm:text-2xl sm:w-24"><%= account&.name %></p>
+            <p class="text-sefi-regular">$<%= account.balance_cents %></p>
+          </div>
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <%= link_to edit_business_account_path(@business, account) do %>
+              <circle cx="22" cy="22" r="22" fill="#23D5B4"/>
+              <path d="M14.2996 29.6997H15.8396L25.3271 20.2122L23.7871 18.6722L14.2996 28.1597V29.6997ZM30.0296 18.6172L25.3546 13.9972L26.8946 12.4572C27.3163 12.0355 27.8344 11.8247 28.4489 11.8247C29.0634 11.8247 29.5812 12.0355 30.0021 12.4572L31.5421 13.9972C31.9638 14.4189 32.1838 14.9278 32.2021 15.524C32.2204 16.1202 32.0188 16.6288 31.5971 17.0497L30.0296 18.6172ZM28.4346 20.2397L16.7746 31.8997H12.0996V27.2247L23.7596 15.5647L28.4346 20.2397ZM24.5571 19.4422L23.7871 18.6722L25.3271 20.2122L24.5571 19.4422Z" fill="#FDFCFC"/>
+            </svg>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="flex items-end">
+      <%= link_to new_business_account_path(@bussines), class: "mb-0" do %>
+        <%= image_tag('add_button.svg')%>
+      <% end %>
+    </div>
   </div>
 </div>
