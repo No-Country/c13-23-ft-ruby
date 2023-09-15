@@ -2,8 +2,8 @@ class EgressesController < ApplicationController
     # before_action :set_movement, only: %i[index]
   
     def index
-      @bussines = Business.find(params[:business_id])
-      @accounts = @bussines.accounts
+      @business = Business.find(params[:business_id])
+      @accounts = @business.accounts
       @egresses = []
       @accounts.map do |account|
         account.movements.map do |movement|
@@ -14,8 +14,8 @@ class EgressesController < ApplicationController
 
     def new
       # @egress = Egress.new
-      @bussines = Business.find(params[:business_id])
-      @accounts = @bussines.accounts
+      @business = Business.find(params[:business_id])
+      @accounts = @business.accounts
     end
     
   

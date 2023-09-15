@@ -3,10 +3,10 @@ class MovementsController < ApplicationController
   
 
     def index
-      @bussines = Business.find(params[:business_id])
+      @business = Business.find(params[:business_id])
       @user = current_user
 
-      @accounts = @bussines.accounts
+      @accounts = @business.accounts
       @movements = []
       @accounts.map do |account|
         account.movements.map do |movement|
