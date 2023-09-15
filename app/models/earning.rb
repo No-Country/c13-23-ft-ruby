@@ -21,5 +21,5 @@
 #
 class Earning < Movement
   # belongs_to :movements
-  validate_presence_of :account_id, :balance_cents
+  validates_presence_of :account_id, :balance_cents
 end
