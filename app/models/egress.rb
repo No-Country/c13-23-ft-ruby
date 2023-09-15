@@ -21,6 +21,5 @@
 #
 class Egress < Movement
   # belongs_to :movements
-
-  
+  validate_of_presence :account_id, :balance_cents
 end

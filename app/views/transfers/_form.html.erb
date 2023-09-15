@@ -4,11 +4,11 @@
       <%= form.fields_for :movement do |f| %>
         <%= f.label :fecha, "Fecha", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
         <%= f.date_field :created_at, autofocus: true, class: 'input-form mb-4 pt-2'  %>
-        <%= f.label :importe, "Importe", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.label :importe, "Importe *", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
         <%= f.number_field :balance_cents, placeholder: "$", class: 'input-form mb-4 pt-2' %>
-        <%= f.label :cuenta, "Cuenta Origen", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.label :cuenta, "Cuenta Origen *", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
         <%= f.collection_select(:account_id, @accounts, :id, :name, {prompt: "Selecciona una cuenta"}, {class: "input-form mb-4 pt-2"}) %>
-        <%= f.label :cuenta, "Cuenta Destino", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+        <%= f.label :cuenta, "Cuenta Destino *", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
         <%= f.collection_select(:account_id, @accounts, :id, :name, {prompt: "Selecciona una cuenta"}, {class: "input-form mb-4 pt-2"}) %>
         <%= f.label :categoria, "Categoria", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
         <%= f.select :category, options_for_select(@categorias), {prompt: "Selecciona una categoria"}, {class: "input-form mb-4 pt-2"} %>

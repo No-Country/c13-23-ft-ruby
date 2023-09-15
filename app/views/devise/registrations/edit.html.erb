@@ -32,7 +32,7 @@
         <%= f.label :email, "Correo Electrónico", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
         <%= f.text_field :email, autofocus: true, autocomplete: "email", value: @user.email, class: 'input-form mb-4' %>
         <%= f.label :phone, "Teléfono", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
-        <%= f.text_field :phone, autofocus: true, autocomplete: "phone", value: @user.phone, class: 'input-form mb-4' %>
+        <%= f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: "+54", value: @user.phone, class: 'input-form mb-4' %>
         <%= f.button :submit, label: "Guardar Cambios", class:"btn-sefi-primary mb-4 md:hidden" %>
       </div>
       <div>
