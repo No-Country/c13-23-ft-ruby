@@ -14,9 +14,8 @@ Rails.application.routes.draw do
     resources :movimientos, as: :movements, controller: :movements
     resources :ingresos, as: :earnings, controller: :earnings
     resources :egresos,  as: :egresses, controller: :egresses
+    resources :transferencias, as: :transfers, controller: :transfers
   end
 
   resources :presupuesto, as: :budgets, controller: :savings
-  resources :transferencias, as: :transfers, controller: :transfers
-
 end
