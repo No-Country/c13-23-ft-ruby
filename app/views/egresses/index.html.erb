@@ -35,7 +35,7 @@
               </div>
             </td>
             <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= egress.created_at.strftime("%d/%m/%y") %></td>
-            <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= egress.category %></td>
+            <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= Movement.categorias_gastos.keys[egress.category] %></td>
             <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base"><%= Account.find(egress.account_id).name %></td>
             <td class="text-xs text-left py-2 px-1 border text-sefi-regular sm:text-base">$<%= egress.balance_cents %></td>
           </tr>
