@@ -14,7 +14,7 @@
     </div>
     <div>
       <%= f.label :categoria %>
-      <%= f.number_field :category %>
+      <%= f.select :category, options_for_select(@categorias) %>
     </div>
     <div>
       <%= f.label :referencia %>
