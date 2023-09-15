@@ -1,7 +1,7 @@
 class TransfersController < ApplicationController
   def index
-    @business = Business.find(params[:business_id])
-    @accounts = @business.accounts
+    @bussines = Business.find(params[:business_id])
+    @accounts = @bussines.accounts
     @transfers = []
     @accounts.map do |account|
       account.movements.map do |movement|

@@ -1,5 +1,5 @@
 <div class="mx-4 my-10 md:mx-10">
-  <h1 class="title mb-6 text-sefi-regular"><%= @business.name_business %></h1>
+  <h1 class="title mb-6 text-sefi-regular"><%= @bussines.name_business %></h1>
   <div class="bg-teal-200 flex rounded-full w-full me-2 justify-star items-center">
     <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
       <path d="M18.5002 3.08325C9.99016 3.08325 3.0835 9.98992 3.0835 18.4999C3.0835 27.0099 9.99016 33.9166 18.5002 33.9166C27.0102 33.9166 33.9168 27.0099 33.9168 18.4999C33.9168 9.98992 27.0102 3.08325 18.5002 3.08325ZM20.0418 26.2083H16.9585V16.9583H20.0418V26.2083ZM20.0418 13.8749H16.9585V10.7916H20.0418V13.8749Z" fill="white"/>
@@ -26,7 +26,7 @@
             <td class="text-xs py-2 pe-1 border justify-between items-center">
               <div class="flex justify-between">
                 <p class="text-xs text-left text-sefi-regular sm:text-base"><%= earning.note %></p>
-                <%= link_to edit_business_earning_path(@business, earning) do %>
+                <%= link_to edit_business_earning_path(@bussines, earning) do %>
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                     <path d="M5.61523 15.8631L4.61523 19.9631L8.71523 18.9631L17.9152 9.76309L14.8152 6.66309L5.61523 15.8631ZM6.11523 18.9631L5.71523 18.4631L6.11523 16.4631L8.11523 18.4631L6.11523 18.9631ZM15.5152 8.36309L7.41523 16.3631L6.81523 15.7631L14.9152 7.76309L15.5152 8.36309Z" fill="#7647CA"/>
                     <path d="M19.9154 4.66333C18.8154 3.56333 17.3154 4.16333 17.3154 4.16333L15.8154 5.66333L18.9154 8.76333L20.4154 7.26333C20.4154 7.16333 21.0154 5.76333 19.9154 4.66333ZM18.0154 5.56333L17.5154 5.06333C18.1154 4.46333 18.6154 4.96333 18.6154 4.96333L18.0154 5.56333Z" fill="#7647CA"/>
