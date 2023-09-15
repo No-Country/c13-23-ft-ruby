@@ -21,6 +21,10 @@
 #
 class Earning < Movement
   # belongs_to :movements
+<<<<<<< HEAD
   monetize :balance_cents
 
+=======
+  validate_of_presence :account_id, :balance_cents
+>>>>>>> e541ab2ac350343ed4c40f38132d91173d26793c
 end

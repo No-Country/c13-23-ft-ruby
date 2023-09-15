@@ -13,7 +13,7 @@ class TransfersController < ApplicationController
   def new
     @business = Business.find(params[:business_id])
     @accounts = @business.accounts
-    @categorias = Movement.categorias_gastos.keys.map { |categoria| [categoria, categoria]}
+    @categorias = Movement.categorias_transferencias.keys.map { |categoria| [categoria, categoria]}
   end
 
   def create
