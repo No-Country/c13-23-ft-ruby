@@ -2,15 +2,15 @@
 #
 # Table name: notifications
 #
-#  id            :bigint           not null, primary key
-#  balance_cents :integer          default(0)
-#  date          :date
-#  name          :string
-#  note          :text
-#  status        :integer          default("active")
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  business_id   :bigint           not null
+#  id          :bigint           not null, primary key
+#  balance     :integer          default(0)
+#  date        :date
+#  name        :string
+#  note        :text
+#  status      :integer          default("active")
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  business_id :bigint           not null
 #
 # Indexes
 #
