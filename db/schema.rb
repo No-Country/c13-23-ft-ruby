@@ -12,121 +12,121 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_12_174427) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'accounts', force: :cascade do |t|
-    t.bigint 'business_id', null: false
-    t.string 'name'
-    t.integer 'balance', default: 0
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['business_id'], name: 'index_accounts_on_business_id'
+  create_table "accounts", force: :cascade do |t|
+    t.bigint "business_id", null: false
+    t.string "name"
+    t.integer "balance", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_accounts_on_business_id"
   end
 
-  create_table 'active_storage_attachments', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'record_type', null: false
-    t.bigint 'record_id', null: false
-    t.bigint 'blob_id', null: false
-    t.datetime 'created_at', null: false
-    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
-    t.index ['record_type', 'record_id', 'name', 'blob_id'], name: 'index_active_storage_attachments_uniqueness', unique: true
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table 'active_storage_blobs', force: :cascade do |t|
-    t.string 'key', null: false
-    t.string 'filename', null: false
-    t.string 'content_type'
-    t.text 'metadata'
-    t.string 'service_name', null: false
-    t.bigint 'byte_size', null: false
-    t.string 'checksum'
-    t.datetime 'created_at', null: false
-    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table 'active_storage_variant_records', force: :cascade do |t|
-    t.bigint 'blob_id', null: false
-    t.string 'variation_digest', null: false
-    t.index ['blob_id', 'variation_digest'], name: 'index_active_storage_variant_records_uniqueness', unique: true
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table 'businesses', force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.string 'name_business'
-    t.text 'description'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['user_id'], name: 'index_businesses_on_user_id'
+  create_table "businesses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name_business"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
-  create_table 'earnings', force: :cascade do |t|
-    t.bigint 'movements_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['movements_id'], name: 'index_earnings_on_movements_id'
+  create_table "earnings", force: :cascade do |t|
+    t.bigint "movements_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movements_id"], name: "index_earnings_on_movements_id"
   end
 
-  create_table 'egresses', force: :cascade do |t|
-    t.bigint 'movements_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['movements_id'], name: 'index_egresses_on_movements_id'
+  create_table "egresses", force: :cascade do |t|
+    t.bigint "movements_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movements_id"], name: "index_egresses_on_movements_id"
   end
 
-  create_table 'movements', force: :cascade do |t|
-    t.bigint 'account_id', null: false
-    t.integer 'balance', default: 0
-    t.integer 'category'
-    t.string 'beneficiary'
-    t.text 'note'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['account_id'], name: 'index_movements_on_account_id'
+  create_table "movements", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.integer "balance", default: 0
+    t.integer "category"
+    t.string "beneficiary"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_movements_on_account_id"
   end
 
-  create_table 'notifications', force: :cascade do |t|
-    t.bigint 'business_id', null: false
-    t.string 'name'
-    t.date 'date'
-    t.integer 'status', default: 0
-    t.integer 'balance', default: 0
-    t.text 'note'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['business_id'], name: 'index_notifications_on_business_id'
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "business_id", null: false
+    t.string "name"
+    t.date "date"
+    t.integer "status", default: 0
+    t.integer "balance", default: 0
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_notifications_on_business_id"
   end
 
-  create_table 'transfers', force: :cascade do |t|
-    t.bigint 'movements_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['movements_id'], name: 'index_transfers_on_movements_id'
+  create_table "transfers", force: :cascade do |t|
+    t.bigint "movements_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movements_id"], name: "index_transfers_on_movements_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'first_name'
-    t.string 'last_name'
-    t.date 'date_of_birth'
-    t.string 'phone'
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_birth"
+    t.string "phone"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key 'accounts', 'businesses'
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'businesses', 'users'
-  add_foreign_key 'earnings', 'movements', column: 'movements_id'
-  add_foreign_key 'egresses', 'movements', column: 'movements_id'
-  add_foreign_key 'movements', 'accounts'
-  add_foreign_key 'notifications', 'businesses'
-  add_foreign_key 'transfers', 'movements', column: 'movements_id'
+  add_foreign_key "accounts", "businesses"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "businesses", "users"
+  add_foreign_key "earnings", "movements", column: "movements_id"
+  add_foreign_key "egresses", "movements", column: "movements_id"
+  add_foreign_key "movements", "accounts"
+  add_foreign_key "notifications", "businesses"
+  add_foreign_key "transfers", "movements", column: "movements_id"
 end
