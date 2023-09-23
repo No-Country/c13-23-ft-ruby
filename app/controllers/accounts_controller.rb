@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: %i[show edit update destroy]
-  attr_accessor :business
+  
   def index
     @accounts = Account.where(business_id: current_user)
   end

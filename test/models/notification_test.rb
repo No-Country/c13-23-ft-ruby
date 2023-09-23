@@ -3,7 +3,8 @@
 # Table name: notifications
 #
 #  id            :bigint           not null, primary key
-#  balance_cents :integer          default(0)
+#  balance_cents :decimal(, )      default(0.0)
+#  currency      :string
 #  date          :date
 #  name          :string
 #  note          :text

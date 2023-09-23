@@ -3,7 +3,8 @@
 # Table name: notifications
 #
 #  id            :bigint           not null, primary key
-#  balance_cents :integer          default(0)
+#  balance_cents :decimal(, )      default(0.0)
+#  currency      :string
 #  date          :date
 #  name          :string
 #  note          :text
@@ -23,4 +24,5 @@
 class Notification < ApplicationRecord
   belongs_to :business
   enum status: { active: 0, expired: 1 }
+  monetize :balance_cents, as: :balance
 end
