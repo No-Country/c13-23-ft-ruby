@@ -3,9 +3,10 @@
 # Table name: movements
 #
 #  id            :bigint           not null, primary key
-#  balance_cents :integer          default(0)
+#  balance_cents :decimal(, )      default(0.0)
 #  beneficiary   :string
 #  category      :integer
+#  currency      :string
 #  note          :text
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

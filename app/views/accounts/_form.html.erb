@@ -3,8 +3,8 @@
     <%= form_for [@business, @account] do |f| %>
       <%= f.label :name, "Nombre de la Cuenta *", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
       <%= f.text_field :name, autofocus: true, placeholder: "Ej. Emprendimiento", class: 'input-form mb-4 pt-2' %>
-      <%= f.label :balance, "Importe Inicial", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
-      <%= f.text_field :balance, autofocus: true, placeholder: "$", class: 'input-form mb-4' %>
+      <%= f.label :balance_cents, "Importe Inicial", class: "text-sefi-bold mb-4 md:text-sefi-regular" %>
+      <%= f.text_field :balance_cents, autofocus: true, placeholder: "$", class: 'input-form mb-4' %>
       <%= f.submit "Crear Cuenta", class:"btn-sefi-primary mb-4" %>
     </div>
   <% end %>
