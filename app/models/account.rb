@@ -23,5 +23,5 @@ class Account < ApplicationRecord
   has_many :movements, dependent: :destroy
   validates :name, presence: true
   validates :balance_cents, presence: true
-  monetize :balance_cents
+  monetize :balance_cents, as: :balance
 end
